@@ -1,0 +1,68 @@
+html {
+    font-weight: 600;
+    font-family: Helvetica;
+}
+
+body{
+    /* font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif; */
+    font-size: 14px;
+    line-height: 1.43;
+    color: #484848;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.banner {
+    position: relative;
+    z-index: 5;
+}
+
+
+.a1 {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid rgb(228, 228, 228)
+}
+
+imageFlamingo {
+    padding-bottom: 10%;
+
+}
+
+#Find {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+    background-color: #ffffff;
+    transition: box-shadow 200ms ease-in !important;
+    border: 1px solid #EBEBEB !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    height: 48px !important;
+    box-sizing: border-box;
+}
+
+.Login {
+  letter-spacing: 1pt;
+  position: relative;
+  color: #2d3436;
+  width: 50%;
+  margin: 1%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  font-size: 1.5em;
+  text-align: center;
+  float: right;
+}
+.Find{
+    letter-spacing: 1pt;
+    font-family: Helvetica;
+
+}
+
+.imgPrincipal{
+    height: 300px;
+}
