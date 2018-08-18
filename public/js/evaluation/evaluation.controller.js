@@ -1,7 +1,4 @@
 
-
-
-
 let food;
 let customerService;
 let Rooms;
