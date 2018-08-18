@@ -21,3 +21,10 @@ module.exports.hotelEvaluationRegistry = function(req, res){
     });
 
 };
+
+module.exports.getEvaluations = function (req, res) {
+    EvaluationModel.find().then(
+        function (evaluation) {
+            res.send(evaluation);
+        });
+};

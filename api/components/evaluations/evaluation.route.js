@@ -9,4 +9,9 @@ router.route('/hotelEvaluationRegistry')
     evaluation.hotelEvaluationRegistry(req, res);
 });
 
+router.route('/getEvaluations')
+    .get(function (req, res) {
+        evaluation.listar(req, res);
+    });
+
 module.exports = router;
