@@ -5,10 +5,10 @@ const HotelModel = require('./hotel.model');
 module.exports.hotelRegistry = function(req, res){
     let newHotel = new HotelModel({
         hotelName : req.body.hotelName,
-        Location : req.body.Location,
         Provincia: req.body.Provincia,
         Canton : req.body.Canton,
         Distrito : req.body.Distrito,
+        Location : req.body.Location,
         Address : req.body.Address,
         CSPhone : req.body.CSPhone,
         CSEmail : req.body.CSEmail,

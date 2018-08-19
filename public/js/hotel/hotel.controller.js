@@ -1,5 +1,70 @@
 'use strict';
 
+let inputhotelName;
+let inputProvincia;
+let inputCanton;
+let inputDistrito;
+let inputLocation;
+let inputAddress;
+let inputCSPhone;
+let inputCSEmail;
+let inputphoneReservations;
+let inputemailReservations;
+
+inputhotelName = document.querySelector('#txthotelName');
+inputProvincia = document.querySelector('#txtProvincia');
+inputCanton = document.querySelector('#txtCanton');
+inputDistrito = document.querySelector('#txtDistrito');
+inputLocation = document.querySelector('#txtLocation');
+inputAddress = document.querySelector('#txtAddress');
+inputCSPhone = document.querySelector('#txtCSPhone');
+inputCSEmail = document.querySelector('#txtCSEmail');
+inputphoneReservations = document.querySelector('#txtphoneReservations');
+inputemailReservations = document.querySelector('#txtemailReservations');
+
+let botonRegistro = document.querySelector('#btnHotel');
+botonRegistro.addEventListener('click' , hotelRegistration);
+
+function hotelRegistration(){
+    let infoHotel =[];
+    let bError = false;
+
+    let hotelName = inputhotelName.value;
+    let Provincia = inputProvincia.value;
+    let Canton = inputCanton.value;
+    let Distrito = inputDistrito.value;
+    let Location = inputLocation.value;
+    let Address = inputAddress.value;
+    let CSPhone = inputCSPhone.value;
+    let CSEmail = inputCSEmail.value;
+    let phoneReservations = inputphoneReservations.value;
+    let emailReservations = inputemailReservations.value;
+
+    infoHotel.push(hotelName, Provincia, Canton, Distrito, Location, Address, CSPhone, CSEmail, phoneReservations, emailReservations);
+    
+    bError = hotelValidation();
+    if(bError == true){
+        swal({
+            type : 'warning',
+            title : 'No se pudo registrar el hotel',
+            text: 'Por favor revise los campos en rojo',
+            confirmButtonText : 'Entendido'
+        });
+        
+        console.log('No se pudo registrar el hotel');
+    }else{
+        hotelRegistry(infoHotel);
+        swal({
+            type : 'success',
+            title : 'Registro exitoso',
+            text: 'El hotel se registró adecuadamente',
+            confirmButtonText : 'Entendido'
+        })
+        // limpiarFormulario();
+    }
+    
+}
+
 /** Select que contiene la lista de provincias**/
 listener(inputProvincia, 'change', function () {
     llenarSelect(inputCanton, inputProvincia.value, cantones);
@@ -140,54 +205,87 @@ let distritos = {
     tarrazu: ["San Marcos", "San Lorenzo", "San Carlos"]
 };
 
-
-
-function obtenerDatos(){
-    let infoTiquete =[];
+function hotelValidation(){
     let bError = false;
 
-    let sCedula = inputCedula.value;
-    let scodigo_tiquete = inputcodigo_tiquete.value;
-    let scodigo_proyecto = inputcodigo_proyecto.value;
-    let ssltProyectos = sltProyectos.value;
-    let sdescripcion = inputdescripcion.value;
-    let sfecha = inputfecha.value;
-    let simagen = imagenUrl;
-    let sUsuarioId = getUsuarioAutenticado()._id;
-    let sComentario = txtComentarioTiquete.value;
-    let sEstado = "Pendiente";
-    // let sUsuarioId = getUsuarioAutenticado();
+    let regexSoloLetras = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ]+$/;
+    let regexFormatoCorreo = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    let regexSoloNumeros = /^[0-9]+$/;
 
-    infoTiquete.push(sCedula, scodigo_tiquete, scodigo_proyecto, ssltProyectos, sdescripcion, sfecha, simagen, sUsuarioId, sComentario, sEstado);
-    
-    bError = validar();
-    if(bError == true){
-        swal({
-            type : 'warning',
-            title : 'No se pudo registrar el tiquete',
-            text: 'Por favor revise los campos en rojo',
-            confirmButtonText : 'Entendido'
-        }).then( 
-            function(){
-                ftnQuitarValidacionesClick();   
-            }   
-        );
+ 
+    if(inputhotelName.value == '' ){
+        inputhotelName.classList.add('error-input');
+        bError = true;
     }else{
-        registrarTiquete(infoTiquete);
-        swal({
-            type : 'success',
-            title : 'Registro exitoso',
-            text: 'El tiquete se registró adecuadamente',
-            confirmButtonText : 'Entendido'
-        }).then(
-            function(){
-                window.location.href = "../../html/tiquete/tiquete_listar_cliente.html"
-            }
-        );
+        inputhotelName.classList.remove('error-input');
+    }
+
+    if(inputLocation.value == ''){
+        inputLocation.classList.add('error-input');
+        bError = true;
+    }else{
+        inputLocation.classList.remove('error-input');
+    }
+ 
+     if(inputProvincia.value == ''){
+        inputProvincia.classList.add('error-input');
+        bError = true;
+    }else{
+        inputProvincia.classList.remove('error-input');
+    }
+ 
+     if(inputCanton.value == ''){
+        inputCanton.classList.add('error-input');
+        bError = true;
+    }else{
+        inputCanton.classList.remove('error-input');
+    }
+    if(inputDistrito.value == ''){
+        inputDistrito.classList.add('error-input');
+        bError = true;
+    }else{
+        inputDistrito.classList.remove('error-input');
+    }
+   
+    if(inputAddress.value == '' ){
+        inputAddress.classList.add('error-input');
+        bError = true;
+    }else{
+        inputAddress.classList.remove('error-input');
+    }
+    
+    if(inputCSPhone.value == '' ){
+        inputCSPhone.classList.add('error-input');
+        bError = true;
+    }else{
+        inputCSPhone.classList.remove('error-input');
+    }
+
+   
+    if(inputCSEmail.value == ''  ){
+        inputCSEmail.classList.add('error-input');
+        bError = true;
+    }else{
+        inputCSEmail.classList.remove('error-input');
+    }
+
+   
+    if(inputphoneReservations.value == '' ){
+        inputphoneReservations.classList.add('error-input');
+        bError = true;
+    }else{
+        inputphoneReservations.classList.remove('error-input');
+    }
+
+    if(inputemailReservations.value == ''){
+        inputemailReservations.classList.add('error-input');
+        bError = true;
+    }else{
+        inputemailReservations.classList.remove('error-input');
     }
 
     return bError;
-};
+}
 
 function ListarTiquetes(){
     let ListaTiquete = [];

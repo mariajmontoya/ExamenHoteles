@@ -1,4 +1,4 @@
-function hotelRegistry(Hotel) {
+function hotelRegistry(photel) {
 
     let respuesta = '';
     let peticion = $.ajax({
@@ -8,16 +8,16 @@ function hotelRegistry(Hotel) {
         dataType: 'json',
         async: false,
         data: {
-            hotelName : Hotel[0],
-            Location : Hotel[1],
-            Provincia : Hotel[2],
-            Canton : Hotel[3],
-            Distrito : Hotel[4],
-            Address : Hotel[5],
-            CSPhone : Hotel[6],
-            CSEmail : Hotel[7],
-            phoneReservations: Hotel[8],
-            emailReservations: Hotel[9]
+            hotelName : photel[0],
+            Provincia : photel[1],
+            Canton : photel[2],
+            Distrito : photel[3],
+            Location : photel[4],
+            Address : photel[5],
+            CSPhone : photel[6],
+            CSEmail : photel[7],
+            phoneReservations: photel[8],
+            emailReservations: photel[9]
         }
     });
 
