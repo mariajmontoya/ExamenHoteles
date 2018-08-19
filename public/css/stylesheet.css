@@ -66,3 +66,72 @@ imageFlamingo {
 .imgPrincipal{
     height: 300px;
 }
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.iconStarContainer {
+    color: #7f8c8d;
+}
+
+.iconStarContainer .fa-star {
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+.iconStarContainer i {
+    margin: 30px 30px; 
+}
+
+.selected-star {
+    color: #e67e22;
+}
+
+.descriptContainer {
+    float: left;
+}
+
+.descriptContainer h4 {
+    color: #a06b88;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.starGeneralContainer {
+    float: left;
+    margin-top: 5px;
+}
+
+.iconStarContainer{
+    margin-top: 3px;
+}
+
+.evaluationContainer {
+    background: #f5f9f9;
+}
+
+.hotelName {
+    color: #7f757b;
+}
+
+.evaluationButton {
+    background-color: #a06b88;
+    border-radius: 5px;
+    color: #f5f9f9;
+    padding: 5px 40px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.evaluationButton:hover {
+    background-color: #925f7b;
+}
+
+.clearFix {
+    clear: both;
+}

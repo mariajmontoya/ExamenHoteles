@@ -8,7 +8,6 @@ function registerEvaluationData(pEvaluation) {
         dataType: 'json',
         async: false,
         data: {
-            _id: Evaluation[0], 
             Food : Evaluation[1],
             CustomerService : Evaluation[2],
             Rooms: Evaluation[3],

@@ -1,55 +1,73 @@
-
-
-
-
-let food;
-let customerService;
-let Rooms;
-let Building;
-let Cleaning;
 let HotelId;
-
-function initializeVariables() {
-    food = Number(document.querySelector('#txtNombre')).value;
-    customerService = document.querySelector('#txtCedula').value;
-    Rooms = document.querySelector('#txtProvincia').value;
-    Building = document.querySelector('#txtCanton').value;
-    Cleaning = document.querySelector('#txtDistrito').value; 
-}
-
+let evualuationData = [];
 
 function registerEvaluation(){
-    let evualuationData =[];
-    let bError = false;
 
-    initializeVariables();
+    registerEvaluationData(evualuationData);
+    swal({
+        type : 'success',
+        title : 'Evaluación exitosa',
+        text: 'La evaluación fue recibida',
+        confirmButtonText : 'Entendido'
+    })
+    closeEvaluationModal();
+}
 
-    evualuationData.push(food, customerService, 
-        Rooms, Building, Cleaning, HotelId);
+function closeEvaluationModal() {
+    document.querySelector("#evaluationContainer").classList.add("hide");
+}
+
+function openEvaluationModal() {
+    document.querySelector("#evaluationContainer").classList.remove("hide");
+}
+
+// let activeElement
+
+$(document).ready(function(){
+    $(".starContainer").click(function(e) {
+        addPoint(e.currentTarget.id, e);
+        // e.addClass("selected-star");
+        // $(".fa-star").removeClass('selected-star');
+        // $("#" + e.currentTarget.id).addClass('selected-star');
+        console.log(e);
+    })
+});
+
+function addPoint(id, target) {
+    separator = "_", // un espacio en blanco
+    limit  = 2,
+    pointArray = id.split(separator, limit);
+    // console.log(pointArray); 
+
+    switch (pointArray[0]) {
+        case "food":
+            evualuationData[0] = pointArray[1];
+            $("[class*=food]").removeClass('selected-star');
+            $("." + target.currentTarget.id).addClass('selected-star');
+            break;
+        case "customerService":
+            evualuationData[1] = pointArray[1];
+            $("[class*=customerService]").removeClass('selected-star');
+            $("." + target.currentTarget.id).addClass('selected-star');
+            break;
+        case "rooms":
+            evualuationData[2] = pointArray[1];
+            $("[class*=rooms]").removeClass('selected-star');
+            $("." + target.currentTarget.id).addClass('selected-star');
+            break;
+        case "building":
+            evualuationData[3] = pointArray[1];
+            $("[class*=building]").removeClass('selected-star');
+            $("." + target.currentTarget.id).addClass('selected-star');
+            break;
+        case "cleaning":
+            evualuationData[4] = pointArray[1];
+            $("[class*=cleaning]").removeClass('selected-star');
+            $("." + target.currentTarget.id).addClass('selected-star');
+            break;                                                
     
-    bError = validar();
-    if(bError == true){
-        swal({
-            type : 'warning',
-            title : 'No se pudo registrar el cliente',
-            /*text: 'Por favor revise los campos en rojo',*/
-            confirmButtonText : 'Entendido'
-        });
-        
-        console.log('No se pudo registrar el usuario');
-    }else{
-        registrarCliente(infoCliente);
-        swal({
-            type : 'success',
-            title : 'Registro exitoso',
-            text: 'El cliente se registró adecuadamente',
-            confirmButtonText : 'Entendido'
-        }).then(
-            function(){
-                window.location.href = "../../html/cliente/cliente_listar.html"
-            }
-        );
-        limpiarFormulario();
+        default:
+            break;
     }
     
 }
