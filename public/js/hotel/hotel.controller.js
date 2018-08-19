@@ -22,8 +22,14 @@ inputCSEmail = document.querySelector('#txtCSEmail');
 inputphoneReservations = document.querySelector('#txtphoneReservations');
 inputemailReservations = document.querySelector('#txtemailReservations');
 
-let botonRegistro = document.querySelector('#btnHotel');
+HotelsList();
+
+const botonRegistro = document.querySelector('#btnHotel');
 botonRegistro.addEventListener('click' , hotelRegistration);
+
+inputFiltro.addEventListener('keyup' , function(){
+    HotelsList(inputFiltro.value)
+});
 
 function hotelRegistration(){
     let infoHotel =[];
@@ -60,6 +66,7 @@ function hotelRegistration(){
             text: 'El hotel se registró adecuadamente',
             confirmButtonText : 'Entendido'
         })
+        HotelsList();
         // limpiarFormulario();
     }
     
@@ -254,7 +261,7 @@ function hotelValidation(){
         inputAddress.classList.remove('error-input');
     }
     
-    if(inputCSPhone.value == '' ){
+    if(inputCSPhone.value == '' || (regexSoloNumeros.test(inputCSPhone.value)==false) ){
         inputCSPhone.classList.add('error-input');
         bError = true;
     }else{
@@ -262,7 +269,7 @@ function hotelValidation(){
     }
 
    
-    if(inputCSEmail.value == ''  ){
+    if(inputCSEmail.value == '' || (regexFormatoCorreo.test(inputCSEmail.value)==false) ){
         inputCSEmail.classList.add('error-input');
         bError = true;
     }else{
@@ -270,14 +277,14 @@ function hotelValidation(){
     }
 
    
-    if(inputphoneReservations.value == '' ){
+    if(inputphoneReservations.value == ''  || (regexSoloNumeros.test(inputphoneReservations.value)==false)){
         inputphoneReservations.classList.add('error-input');
         bError = true;
     }else{
         inputphoneReservations.classList.remove('error-input');
     }
 
-    if(inputemailReservations.value == ''){
+    if(inputemailReservations.value == '' || (regexFormatoCorreo.test(inputemailReservations.value)==false)){
         inputemailReservations.classList.add('error-input');
         bError = true;
     }else{
@@ -287,88 +294,47 @@ function hotelValidation(){
     return bError;
 }
 
-function ListarTiquetes(){
-    let ListaTiquete = [];
 
-    ListaTiquete = fitrarListaTiquetes();
-
-    console.log("lista tiquetes");
-    console.log(ListaTiquete);
-    let tbody = document.querySelector('#tblTiquetes tbody');
+function HotelsList(pFiltro){
+     let HotelList = listHotel();
+   
+ 
+    let tbody = document.querySelector('#tblHotels tbody');
     tbody.innerHTML = '';
 
-    for(let i = 0; i < ListaTiquete.length; i++){
-        
-        if(ListaTiquete[i]['desactivado']){
+    for(let i = 0; i < HotelList.length; i++){
+        if(HotelList[i]['desactivado']){
             continue;
         } else { 
-        
-            let fila = tbody.insertRow();
-            let celdaCodigoTiquete = fila.insertCell();
-            let celdaCedulaJuridica = fila.insertCell();
-            let celdaNombreProyecto = fila.insertCell();
-            let celdaFecha = fila.insertCell();
-            let celdaEstado = fila.insertCell();
-            let cConfiguracion = fila.insertCell();
-           
-    
-            celdaCodigoTiquete.innerHTML = ListaTiquete[i]['codigo_tiquete'];
-            celdaCedulaJuridica.innerHTML = ListaTiquete[i]['Cedula'];
-            celdaNombreProyecto.innerHTML = ListaTiquete[i]['Proyecto'];
-            celdaFecha.innerHTML = ListaTiquete[i]['fecha'];
-            celdaEstado.innerHTML = ListaTiquete[i]['Estado'];
-
-           // validación para mostrar el estado del usuario en la tabla. Copiar esto
-           if (ListaTiquete[i]['Desactivado'] == true) {
-            celdaEstado.innerHTML = "Activo";
-        } else if(ListaTiquete[i]['Desactivado'] == false) {
-            celdaEstado.innerHTML = "Inactivo";
-        }
-       
-
-        //Íconos para editar
-        let aModificar = document.createElement('a'); // * * * agregar todos estos * * *
-        aModificar.classList.add('fas');
-        aModificar.classList.add('fa-eye');
-        aModificar.dataset._id =  ListaTiquete[i]['_id'];         
-
-        if (getUsuarioAutenticado().TipoUsuario == 3 || getUsuarioAutenticado().TipoUsuario == 1) {
-            // modificar estado del cliente. Copiar esto
-            let btnModificarEstado = document.createElement('button'); 
-            btnModificarEstado.dataset._id =  ListaTiquete[i]['_id']; 
-
-            // validación para mostrar el nombre del botón según el estado de usuario. Copiar esto
-            if (ListaTiquete[i]['Estado'] == "Pendiente") {
-                btnModificarEstado.innerHTML = 'Finalizado';
-            } else if(ListaTiquete[i]['Estado'] == "Finalizado") {
-                btnModificarEstado.innerHTML = 'Pendiente';
-            }
             
-            // llamado para la función modificar estado del cliente. Copiar esto
-            btnModificarEstado.addEventListener('click', function(){
-                let estado = ListaTiquete[i]['Estado'];
-                if(estado == "Pendiente" ){
-                    estado = "Finalizado";
-                }else if(estado == "Finalizado"){
-                    estado = "Pendiente";
-                }
-                actualizarEstadoTiquete(ListaTiquete[i], estado);
-                ListarTiquetes();
-            });
-            cConfiguracion.appendChild(btnModificarEstado);
+            let fila = tbody.insertRow();
+            let celdahotelName = fila.insertCell();
+            // let celdaFotoHotel = fila.insertCell();
+            // let celdaEvaluaciones = fila.insertCell();
+            // let celdaVer = fila.insertCell();
+            // let celdaModificar = fila.insertCell();
+            // let celdaEliminar = fila.insertCell();
+            // let celdaEstado = fila.insertCell();
+            
+        
+            celdahotelName.innerHTML = HotelList[i]['hotelName'];
+            // celdaFotoHotel.innerHTML = HotelList[i]['fotoHotel'];
+            // celdaEvaluaciones.innerHTML = HotelList[i]['evaluaciones'];
+            // celdaVer.innerHTML = HotelList[i]['ver'];
+            // celdaModificar.innerHTML = HotelList[i]['modificar'];
+            // celdaEliminar.innerHTML = HotelList[i]['eliminar'];
+            // celdaEstado.innerHTML = HotelList[i]['estado'];
+            
+
+
+    
+    
         }
-
-
-        aModificar.addEventListener('click', function(){
-            ftnMostrarTiquete(ListaTiquete[i]);
-        });
-
-        cConfiguracion.appendChild(aModificar);
-
-        }
+        
     }
 
 };
+
 
 function  FiltrarListaTiquetes (){
 
