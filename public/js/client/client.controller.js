@@ -1,29 +1,44 @@
 'use strict';
+let Id;
+let FristName;
+let MiddleName;
+let Lastname;
+let SecondLastname;
+let DateBirth;
+let Gender;
+let Picture;
+let Email;
+let Password;
+let PasswordConfirmation;
 
+function initializeVariables() {
+    Id = Number(document.querySelector('#txtId')).value;
+    FristName = document.querySelector('#txtFristName').value;
+    MiddleName = document.querySelector('#txtMiddleName').value;
+    Lastname = document.querySelector('#txtLastname').value;
+    SecondLastname = document.querySelector('#txtSecondLastname').value; 
+    DateBirth = document.querySelector('#txtDateBirth').value; 
+    Gender = document.querySelector('#txtGender').value; 
+    Picture = document.querySelector('#txtPicture').value; 
+    Email = document.querySelector('#txtEmail').value;
+    SecondPasswordLastname = document.querySelector('#txtPassword').value;  
+    PasswordConfirmation = document.querySelector('#txtPasswordConfirmation').value; 
+}
 
-function obtenerDatosCliente(){
-    let infoCliente =[];
+function userRegistration(){
+    let infoUser =[];
     let bError = false;
 
-    let sNombreCliente = inputNombreCliente.value;
-    let sCedula = Number(inputCedulaCliente.value);
-    let sProvincia = inputProvincia.value;
-    let sCanton = inputCanton.value;
-    let sDistrito = inputDistrito.value;
-    let sPrimerNombre = inputPrimerNombre.value;
-    let sPrimerApellido = inputPrimerApellido.value;
-    let sTelefono = Number(inputTelefonoCliente.value);
-    let sCorreo = inputCorreo.value;
-    let sUbicacion = JSON.stringify({latitud: marker.getPosition().lat(), longitud: marker.getPosition().lng()});
+    initializeVariables();
 
-    infoCliente.push(sNombreCliente, sCedula, sProvincia, sCanton, sDistrito, sPrimerNombre, sPrimerApellido,sTelefono, sCorreo, sUbicacion, desactivar);
+    infoUser.push(Id, FristName, MiddleName, Lastname, SecondLastname, DateBirth, Gender, Picture, Email, Password, PasswordConfirmation);
     
     bError = validar();
     if(bError == true){
         swal({
             type : 'warning',
             title : 'No se pudo registrar el cliente',
-            /*text: 'Por favor revise los campos en rojo',*/
+            text: 'Por favor revise los campos en rojo',
             confirmButtonText : 'Entendido'
         });
         
@@ -40,170 +55,127 @@ function obtenerDatosCliente(){
                 window.location.href = "../../html/cliente/cliente_listar.html"
             }
         );
-        limpiarFormulario();
+        cleanForm();
     }
     
 }
 
-function validar(){
+function cleanForm(){
+    inputId.value = '';    
+    inputFristName.value = '';
+    inputMiddleName.value = '';
+    inputLastname.value = '';
+    inputSecondLastname.value = '';
+    inputDateBirth.value = '';
+    inputGender.value = '';
+    inputPicture.value = '';
+    inputEmail.value = '';
+    inputPassword = '';
+    inputPasswordConfirmation = '';
+}
+
+function validation(){
     let bError = false;
 
     let regexSoloLetras = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ]+$/;
     let regexSoloNumeros = /^[0-9]{1,8}$/;
     let regexFormatoCorreo = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    let regexCedulaJuridica = /^[0-9]{1,10}$/;
+   
+
 
     
-
-    //Validación del NombreEmpresa
-    if(inputNombreCliente.value == '' || (regexSoloLetras.test(inputNombreCliente.value)==false) ){
-        inputNombreCliente.classList.add('error-input');
+    if(inputId.value == '' || (regexSoloNumeros.test(inputId.value)==false) ){
+        inputId.classList.add('error-input');
         bError = true;
     }else{
-        inputNombreCliente.classList.remove('error-input');
+        inputId.classList.remove('error-input');
     }
-    //Validación de la CedulaJuridica
-    if(inputCedulaCliente.value == '' || (regexCedulaJuridica.test(inputCedulaCliente.value)==false) ){
-        inputCedulaCliente.classList.add('error-input');
+   
+    if(inputFristName.value == '' ){
+        inputFristName.classList.add('error-input');
         bError = true;
     }else{
-        inputCedulaCliente.classList.remove('error-input');
+        inputFristName.classList.remove('error-input');
     }
-     //Validación de la Distrito
-     if(inputDistrito.value == ''){
-        inputDistrito.classList.add('error-input');
+ 
+     if(inputMiddleName.value == ''){
+        inputMiddleName.classList.add('error-input');
         bError = true;
     }else{
-        inputDistrito.classList.remove('error-input');
+        inputMiddleName.classList.remove('error-input');
     }
-     //Validación de la Provincia
-     if(inputProvincia.value == ''){
-        inputProvincia.classList.add('error-input');
+   
+     if(inputLastname.value == ''){
+        inputLastname.classList.add('error-input');
         bError = true;
     }else{
-        inputProvincia.classList.remove('error-input');
+        inputLastname.classList.remove('error-input');
     }
-     //Validación de la Canton
-     if(inputCanton.value == ''){
-        inputCanton.classList.add('error-input');
+    
+     if(inputSecondLastname.value == ''){
+        inputSecondLastname.classList.add('error-input');
         bError = true;
     }else{
-        inputCanton.classList.remove('error-input');
+        inputSecondLastname.classList.remove('error-input');
     }
-    //Validación del NombreContacto
-    if(inputPrimerNombre.value == '' ){
-        inputPrimerNombre.classList.add('error-input');
+   
+    if(inputDateBirth.value == '' || (regexSoloNumeros.test(inputId.value)==false) ){
+        inputDateBirth.classList.add('error-input');
         bError = true;
     }else{
-        inputPrimerNombre.classList.remove('error-input');
-    }
-    //Validación del ApellidoContacto
-    if(inputPrimerApellido.value == '' ){
-        inputPrimerApellido.classList.add('error-input');
-        bError = true;
-    }else{
-        inputPrimerApellido.classList.remove('error-input');
+        inputDateBirth.classList.remove('error-input');
     }
 
-    //Validación de la TelefonoContacto
-    if(inputTelefonoCliente.value == '' || (regexSoloNumeros.test(inputTelefonoCliente.value) == false) ){
-        inputTelefonoCliente.classList.add('error-input');
+    if(inputGender.value == '' ){
+        inputGender.classList.add('error-input');
         bError = true;
     }else{
-        inputTelefonoCliente.classList.remove('error-input');
+        inputGender.classList.remove('error-input');
     }
 
-    //Validación de la CorreoContacto
-    if(inputCorreo.value == '' || (regexFormatoCorreo.test(inputCorreo.value)==false) ){
-        inputCorreo.classList.add('error-input');
+    
+    if(inputEmail.value == '' || (regexFormatoCorreo.test(inputEmail.value) == false) ){
+        inputEmail.classList.add('error-input');
         bError = true;
     }else{
-        inputCorreo.classList.remove('error-input');
+        inputEmail.classList.remove('error-input');
+    }
+
+
+    if(inputPassword.value == '' ){
+        inputPassword.classList.add('error-input');
+        bError = true;
+    }else{
+        inputPassword.classList.remove('error-input');
+    }
+
+    if(inputPasswordConfirmation.value == '' ){
+        inputPasswordConfirmation.classList.add('error-input');
+        bError = true;
+    }else{
+        inputPasswordConfirmation.classList.remove('error-input');
     }
 
     return bError;
 }
 
-function ListarTiquetes(){
-    let ListaTiquete = [];
+function birthDate (){
 
-    ListaTiquete = fitrarListaTiquetes();
+    let DateBirth = new Date();
+    let dd = DateBirth.getDate();
+    let mm = DateBirth.getMonth()+1;
+    let yyyy = DateBirth.getFullYear();
+    let DateBirth = null;
 
-    console.log("lista tiquetes");
-    console.log(ListaTiquete);
-    let tbody = document.querySelector('#tblTiquetes tbody');
-    tbody.innerHTML = '';
+    if(dd<10) {
+        dd = '0'+dd
+    } 
 
-    for(let i = 0; i < ListaTiquete.length; i++){
-        
-        if(ListaTiquete[i]['desactivado']){
-            continue;
-        } else { 
-        
-            let fila = tbody.insertRow();
-            let celdaCodigoTiquete = fila.insertCell();
-            let celdaCedulaJuridica = fila.insertCell();
-            let celdaNombreProyecto = fila.insertCell();
-            let celdaFecha = fila.insertCell();
-            let celdaEstado = fila.insertCell();
-            let cConfiguracion = fila.insertCell();
-           
-    
-            celdaCodigoTiquete.innerHTML = ListaTiquete[i]['codigo_tiquete'];
-            celdaCedulaJuridica.innerHTML = ListaTiquete[i]['Cedula'];
-            celdaNombreProyecto.innerHTML = ListaTiquete[i]['Proyecto'];
-            celdaFecha.innerHTML = ListaTiquete[i]['fecha'];
-            celdaEstado.innerHTML = ListaTiquete[i]['Estado'];
+    if(mm<10) {
+    mm = '0'+mm
+    } 
 
-           // validación para mostrar el estado del usuario en la tabla. Copiar esto
-           if (ListaTiquete[i]['Desactivado'] == true) {
-            celdaEstado.innerHTML = "Activo";
-        } else if(ListaTiquete[i]['Desactivado'] == false) {
-            celdaEstado.innerHTML = "Inactivo";
-        }
-       
-
-        //Íconos para editar
-        let aModificar = document.createElement('a'); // * * * agregar todos estos * * *
-        aModificar.classList.add('fas');
-        aModificar.classList.add('fa-eye');
-        aModificar.dataset._id =  ListaTiquete[i]['_id'];         
-
-        if (getUsuarioAutenticado().TipoUsuario == 3 || getUsuarioAutenticado().TipoUsuario == 1) {
-            // modificar estado del cliente. Copiar esto
-            let btnModificarEstado = document.createElement('button'); 
-            btnModificarEstado.dataset._id =  ListaTiquete[i]['_id']; 
-
-            // validación para mostrar el nombre del botón según el estado de usuario. Copiar esto
-            if (ListaTiquete[i]['Estado'] == "Pendiente") {
-                btnModificarEstado.innerHTML = 'Finalizado';
-            } else if(ListaTiquete[i]['Estado'] == "Finalizado") {
-                btnModificarEstado.innerHTML = 'Pendiente';
-            }
-            
-            // llamado para la función modificar estado del cliente. Copiar esto
-            btnModificarEstado.addEventListener('click', function(){
-                let estado = ListaTiquete[i]['Estado'];
-                if(estado == "Pendiente" ){
-                    estado = "Finalizado";
-                }else if(estado == "Finalizado"){
-                    estado = "Pendiente";
-                }
-                actualizarEstadoTiquete(ListaTiquete[i], estado);
-                ListarTiquetes();
-            });
-            cConfiguracion.appendChild(btnModificarEstado);
-        }
-
-
-        aModificar.addEventListener('click', function(){
-            ftnMostrarTiquete(ListaTiquete[i]);
-        });
-
-        cConfiguracion.appendChild(aModificar);
-
-        }
-    }
-
-};
-
+    textoDateBirth = yyyy + "-" + mm + "-" + dd;
+  
+    return textoDateBirth;
+}

@@ -4,7 +4,7 @@ $(function() {
     $.cloudinary.config({ cloud_name: 'dspuap7va', api_key: '197862372221396'});
 
     // Upload button
-    let uploadButton = $('#btnSeleccionarImagen');
+    let uploadButton = $('#txtPicture');
 
     // Upload button event
     uploadButton.on('click', function(e){
@@ -21,7 +21,7 @@ $(function() {
             nuevoValor = "http",
             nuevaCadena = cadena.replace(patron, nuevoValor);
             console.log(imagenUrl);
-            document.querySelector('#txtImagen').src = nuevaCadena;
+            document.querySelector('#txtPicture').src = nuevaCadena;
             //document.querySelector('#txtImagen').src = imagenUrl;
             return imagenUrl;
         });
