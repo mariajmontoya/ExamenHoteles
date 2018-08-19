@@ -11,60 +11,64 @@
 </head>
 <body>
 
-
-    <div>
-        <output id="hotelName" class="hotelName"></output>
-    </div>
-    <div class="evaluationContainer">
-        <div class="descriptContainer">
-            <div><h4>Comida</h4></div>
-            <div><h4>Servicio al cliente</h4></div>
-            <div><h4>Cuartos</h4></div>
-            <div><h4>Infraestructura</h4></div>
-            <div><h4>Limpieza</h4></div>
-        </div>
-
-        <div class="starGeneralContainer">
-            <div class="iconStarContainer">
-                <span id="food_1" class="starContainer"><i  class="food_1 fas fa-star colorStar food"></i></span>
-                <span id="food_2" class="starContainer"><i  class="food_2 fas fa-star colorStar food"></i></span>
-                <span id="food_3" class="starContainer"><i  class="food_3 fas fa-star colorStar food"></i></span>
-                <span id="food_4" class="starContainer"><i  class="food_4 fas fa-star colorStar food"></i></span>
-                <span id="food_5" class="starContainer"><i  class="food_5 fas fa-star colorStar food"></i></span>
-            </div>
-            <div class="iconStarContainer">
-                <span id="customerService_1" class="starContainer"><i id="customerService_1" class="customerService_1 fas fa-star"></i></span>
-                <span id="customerService_2" class="starContainer"><i id="customerService_2" class="customerService_2 fas fa-star"></i></span>
-                <span id="customerService_3" class="starContainer"><i id="customerService_3" class="customerService_3 fas fa-star"></i></span>
-                <span id="customerService_4" class="starContainer"><i id="customerService_4" class="customerService_4 fas fa-star"></i></span>
-                <span id="customerService_5" class="starContainer"><i id="customerService_5" class="customerService_5 fas fa-star"></i></span>
-            </div>
-            <div class="iconStarContainer">
-                <span id="rooms_1" class="starContainer"><i id="rooms_1" class="rooms_1 fas fa-star"></i></span>
-                <span id="rooms_2" class="starContainer"><i id="rooms_2" class="rooms_2 fas fa-star"></i></span>
-                <span id="rooms_3" class="starContainer"><i id="rooms_3" class="rooms_3 fas fa-star"></i></span>
-                <span id="rooms_4" class="starContainer"><i id="rooms_4" class="rooms_4 fas fa-star"></i></span>
-                <span id="rooms_5" class="starContainer"><i id="rooms_5" class="rooms_5 fas fa-star"></i></span>
-            </div>
-            <div class="iconStarContainer">
-                <span id="building_1" class="starContainer"><i id="building_1" class="building_1 fas fa-star"></i></span>
-                <span id="building_2" class="starContainer"><i id="building_2" class="building_2 fas fa-star"></i></span>
-                <span id="building_3" class="starContainer"><i id="building_3" class="building_3 fas fa-star"></i></span>
-                <span id="building_4" class="starContainer"><i id="building_4" class="building_4 fas fa-star"></i></span>
-                <span id="building_5" class="starContainer"><i id="building_5" class="building_5 fas fa-star"></i></span>
-            </div>
-
-            <div class="iconStarContainer">
-                <span id="cleaning_1" class="starContainer"><i id="cleaning_1" class="cleaning_1 fas fa-star"></i></span>
-                <span id="cleaning_2" class="starContainer"><i id="cleaning_2" class="cleaning_2 fas fa-star"></i></span>
-                <span id="cleaning_3" class="starContainer"><i id="cleaning_3" class="cleaning_3 fas fa-star"></i></span>
-                <span id="cleaning_4" class="starContainer"><i id="cleaning_4" class="cleaning_4 fas fa-star"></i></span>
-                <span id="cleaning_5" class="starContainer"><i id="cleaning_5" class="cleaning_5 fas fa-star"></i></span>
-            </div>
-        </div>
-        <div class="clearFix"></div>
+    <div id="evaluationModal" class="evaluationModal">
         <div>
-            <button class="evaluationButton">Calificar</button>
+            <output id="hotelName" class="hotelName"></output>
+        </div>
+        <div class="close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="evaluationContainer">
+            <div class="descriptContainer">
+                <div><h4>Comida</h4></div>
+                <div><h4>Servicio al cliente</h4></div>
+                <div><h4>Cuartos</h4></div>
+                <div><h4>Infraestructura</h4></div>
+                <div><h4>Limpieza</h4></div>
+            </div>
+
+            <div class="starGeneralContainer">
+                <div class="iconStarContainer">
+                    <span id="food_1" class="starContainer"><i  class="food_1 fas fa-star colorStar food"></i></span>
+                    <span id="food_2" class="starContainer"><i  class="food_2 fas fa-star colorStar food"></i></span>
+                    <span id="food_3" class="starContainer"><i  class="food_3 fas fa-star colorStar food"></i></span>
+                    <span id="food_4" class="starContainer"><i  class="food_4 fas fa-star colorStar food"></i></span>
+                    <span id="food_5" class="starContainer"><i  class="food_5 fas fa-star colorStar food"></i></span>
+                </div>
+                <div class="iconStarContainer">
+                    <span id="customerService_1" class="starContainer"><i id="customerService_1" class="customerService_1 fas fa-star"></i></span>
+                    <span id="customerService_2" class="starContainer"><i id="customerService_2" class="customerService_2 fas fa-star"></i></span>
+                    <span id="customerService_3" class="starContainer"><i id="customerService_3" class="customerService_3 fas fa-star"></i></span>
+                    <span id="customerService_4" class="starContainer"><i id="customerService_4" class="customerService_4 fas fa-star"></i></span>
+                    <span id="customerService_5" class="starContainer"><i id="customerService_5" class="customerService_5 fas fa-star"></i></span>
+                </div>
+                <div class="iconStarContainer">
+                    <span id="rooms_1" class="starContainer"><i id="rooms_1" class="rooms_1 fas fa-star"></i></span>
+                    <span id="rooms_2" class="starContainer"><i id="rooms_2" class="rooms_2 fas fa-star"></i></span>
+                    <span id="rooms_3" class="starContainer"><i id="rooms_3" class="rooms_3 fas fa-star"></i></span>
+                    <span id="rooms_4" class="starContainer"><i id="rooms_4" class="rooms_4 fas fa-star"></i></span>
+                    <span id="rooms_5" class="starContainer"><i id="rooms_5" class="rooms_5 fas fa-star"></i></span>
+                </div>
+                <div class="iconStarContainer">
+                    <span id="building_1" class="starContainer"><i id="building_1" class="building_1 fas fa-star"></i></span>
+                    <span id="building_2" class="starContainer"><i id="building_2" class="building_2 fas fa-star"></i></span>
+                    <span id="building_3" class="starContainer"><i id="building_3" class="building_3 fas fa-star"></i></span>
+                    <span id="building_4" class="starContainer"><i id="building_4" class="building_4 fas fa-star"></i></span>
+                    <span id="building_5" class="starContainer"><i id="building_5" class="building_5 fas fa-star"></i></span>
+                </div>
+
+                <div class="iconStarContainer">
+                    <span id="cleaning_1" class="starContainer"><i id="cleaning_1" class="cleaning_1 fas fa-star"></i></span>
+                    <span id="cleaning_2" class="starContainer"><i id="cleaning_2" class="cleaning_2 fas fa-star"></i></span>
+                    <span id="cleaning_3" class="starContainer"><i id="cleaning_3" class="cleaning_3 fas fa-star"></i></span>
+                    <span id="cleaning_4" class="starContainer"><i id="cleaning_4" class="cleaning_4 fas fa-star"></i></span>
+                    <span id="cleaning_5" class="starContainer"><i id="cleaning_5" class="cleaning_5 fas fa-star"></i></span>
+                </div>
+            </div>
+            <div class="clearFix"></div>
+            <div>
+                <button class="evaluationButton">Calificar</button>
+            </div>
         </div>
     </div>
     <script src="../js/application/jquery-3.3.1.js"></script>

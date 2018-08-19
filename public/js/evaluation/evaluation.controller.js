@@ -14,11 +14,11 @@ function registerEvaluation(){
 }
 
 function closeEvaluationModal() {
-    document.querySelector("#evaluationContainer").classList.add("hide");
+    document.querySelector("#evaluationModal").classList.add("hide");
 }
 
 function openEvaluationModal() {
-    document.querySelector("#evaluationContainer").classList.remove("hide");
+    document.querySelector("#evaluationModal").classList.remove("hide");
 }
 
 // let activeElement

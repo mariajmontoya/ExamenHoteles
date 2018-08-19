@@ -94,6 +94,7 @@ imageFlamingo {
 
 .descriptContainer {
     float: left;
+    margin-left: 30px;
 }
 
 .descriptContainer h4 {
@@ -104,6 +105,18 @@ imageFlamingo {
 .starGeneralContainer {
     float: left;
     margin-top: 5px;
+    margin-left: 30px;
+}
+
+.starGeneralContainer .fa-times:hover {
+    color: #a06b88;
+}
+
+.close {
+    float: left;
+    margin-left: 380px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 .iconStarContainer{
@@ -130,6 +143,10 @@ imageFlamingo {
 
 .evaluationButton:hover {
     background-color: #925f7b;
+}
+
+.evaluationModal {
+    width: 400px;
 }
 
 .clearFix {
