@@ -295,7 +295,7 @@ function hotelValidation(){
 }
 
 
-function HotelsList(pFiltro){
+function HotelsList(){
      let HotelList = listHotel();
    
  
@@ -324,11 +324,15 @@ function HotelsList(pFiltro){
             // celdaModificar.innerHTML = HotelList[i]['modificar'];
             // celdaEliminar.innerHTML = HotelList[i]['eliminar'];
             // celdaEstado.innerHTML = HotelList[i]['estado'];
+
+            // let aModificar = document.createElement('a');
+            // aModificar.classList.add('fas');
+            // aModificar.classList.add('fa-pen');
+            // aModificar.dataset._id =  listaPersonas[i]['_id'];
             
+            // cConfiguracion.appendChild(aModificar);
 
 
-    
-    
         }
         
     }
@@ -336,36 +340,6 @@ function HotelsList(pFiltro){
 };
 
 
-function  FiltrarListaTiquetes (){
-
-    let criterioBusqueda = inputBusqueda.value.toUpperCase();
-    let filasTiquetes = tablaTiquetes.getElementsByTagName('tr');
-    let datosFila = null;
-    let datos = null;
-    let valor = null;
-    let coincide = false;
-
-    for (let i = 1; i < filasTiquetes.length; i++) {    
-        datosFila = filasTiquetes[i];
-        datos = datosFila.getElementsByTagName('td');
-        coincide = false;
-
-        for (let j = 0; j < datos.length; j++) {
-            valor = datos[j].innerHTML.toUpperCase();
-
-            if(valor.includes(criterioBusqueda)){
-                coincide = true;
-            } 
-        }
-        if(coincide){
-            datosFila.classList.remove('esconder');
-        } else {
-            datosFila.classList.add('esconder');
-        }
-    }
-
-   
-};
 
 function ftnEliminarTiquete(){
 	let tiquetes = [this.name,true];
@@ -379,20 +353,27 @@ function ftnEliminarTiquete(){
     ListaTiquete();
 };
 
-function  filtrarTiquetesPorEncargado (){
-    let listaDatos = [];
-    let listaTiquetes = obtenerListaTiquetes();
-
-    for (let i = 0; i < listaTiquetes.length; i++) {
-        if (JSON.parse(listaTiquetes[i].encargado)._id == getUsuarioAutenticado()._id) {
-            listaDatos.push(listaTiquetes[i]);
-        }
-        
-    }
-
-    return listaDatos;
-};
-
 function guardarTiquete(Tiquete) {
     sessionStorage.setItem("tiqueteSeleccionado", JSON.stringify(Tiquete));
+};
+
+function obtenerDatosEditar(){
+
+    botonRegistrar.hidden = true;
+    botonActualizar.hidden = false;
+
+
+    let id /*este id lo declaramos como variale global*/ /*ver ejemplo de abajo*/=  this.dataset._id;// se obtiene el id del usuario seleccionado //con el metodo this acceso a la informacion que estoy llamando con el binding 
+    let usuario = obtenerPersonaPorId(id);
+
+    let idPersonaSeleccionada =  this.dataset._id;
+    let usuario = obtenerPersonaPorId(idPersonaSeleccionada);
+
+    inputNombre.value =  usuario['nombre_completo'];
+    inputEmail.value = usuario['correo'];
+    inputTelefono.value = usuario['telefono'];
+    inputEdad.value = usuario['edad'];
+
+    imagen.src = usuario['foto'];
+
 };
