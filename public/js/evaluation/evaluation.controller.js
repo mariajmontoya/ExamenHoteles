@@ -1,6 +1,8 @@
 let HotelId;
 let evualuationData = [];
 
+document.querySelector("#close").addEventListener('click', closeEvaluationModal);
+
 function registerEvaluation(){
 
     registerEvaluationData(evualuationData);
