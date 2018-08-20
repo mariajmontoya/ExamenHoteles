@@ -53,17 +53,25 @@ imageFlamingo {
   text-align: center;
   float: right;
 }
-/* .Find{
-    letter-spacing: 1pt;
-    font-family: Helvetica;
-    width : 60px;
-    height : 15px;
-    padding-top : 10px;
-    padding-bottom : 10px;
-    padding-right:15px;
-    margin-left : 15px;
+.find{
+background-color: transparent;
+  border:2px solid #2cbaba;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  width:430px;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: Helvetica;
+  /* font-weight:500; */
+  font-size: 18px;
+  border-radius: 4px;
+  line-height: 22px;
+  text-align:left;
+  letter-spacing : 2pt;
 
-} */
+} 
 
 .imgPrincipal{
     height: 300px;
@@ -293,13 +301,21 @@ body {
 .llegada{
     float: left;
     margin-top: 15px;
-    margin-lef: 10px;
+    margin-left: 15px;
+    margin-right: 5px; 
+    color:#fff;
+    font-family : Helvetica; 
+    letter-spacing: 2pt; 
 }
 
 .salida{
     float: left;
     margin-top: 15px;
-    margin-lef: 10px;
+    margin-left: 15px;
+    margin-right: 5px; 
+    color:#fff;
+    font-family : Helvetica; 
+    letter-spacing: 2pt;
 }
 
 .clearFix {
@@ -373,4 +389,63 @@ button:hover {
 
 .registry{
     text-align:center;
+}
+
+
+.dateBox {
+  background-color: transparent;
+  border:2px solid #2cbaba;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: Helvetica;
+  /* font-weight:500; */
+  font-size: 18px;
+  border-radius: 4px;
+  line-height: 22px;
+  text-align:left;
+  letter-spacing : 2pt;
+
+}
+
+.see{
+    float :left;
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* padding-left :180px; */
+    margin-left: auto;
+    margin-right: 15%;
+    font-family: Helvetica;
+    font-size: 12px;
+    background: transparent;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    margin-top: 150px;
+
+}
+
+.score {
+    float :left;
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 180px;
+    margin-right: auto;
+    font-family: Helvetica;
+    font-size: 12px;
+    background: transparent;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    margin-top: 150px;
+
 }
