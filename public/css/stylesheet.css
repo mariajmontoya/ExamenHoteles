@@ -140,6 +140,7 @@ background-color: transparent;
 .hotelName {
     color: #ffff;
     font-size: 1.500em;
+    font-family: arial;
 }
 
 .evaluationButton {
@@ -347,7 +348,7 @@ body { color:white }
   margin-bottom: 15px;
   width:35%;
   box-sizing: border-box;
-  color: #fff;
+  color: #2cbaba;
   font-family: Helvetica;
   /* font-weight:500; */
   font-size: 18px;
