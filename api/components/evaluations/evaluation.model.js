@@ -10,4 +10,4 @@ let EvaluationModel = new mongoose.Schema({
     HotelId : {type : String, require : true}
 });
 
-module.exports = mongoose.model('Evaluation', EvaluationModel);
+module.exports = mongoose.model('Evaluations', EvaluationModel);

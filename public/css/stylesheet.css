@@ -108,8 +108,9 @@ background-color: transparent;
 }
 
 .descriptContainer h4 {
-    color: #a06b88;
+    color: #2cbaba;
     font-family: Arial, Helvetica, sans-serif;
+    margin-top: 21px;
 }
 
 .starGeneralContainer {
@@ -144,17 +145,20 @@ background-color: transparent;
 }
 
 .evaluationButton {
-    background-color: #a06b88;
+    background-color: #2cbaba;
     border-radius: 5px;
     color: #f5f9f9;
     padding: 5px 40px;
     border: none;
     cursor: pointer;
     width: 100%;
+    width: 100%;
+    margin-left: 60px;
+    margin-top: 40px;
 }
 
 .evaluationButton:hover {
-    background-color: #925f7b;
+    background-color: #236f6f;
 }
 
 .evaluationModal {

@@ -9,6 +9,7 @@ module.exports.hotelEvaluationRegistry = function(req, res){
         Rooms: req.body.Rooms,
         Building : req.body.Building,
         Cleaning : req.body.Cleaning,
+        HotelId : req.body.HotelId
         });
 
         newEvaluation.save(function(error){

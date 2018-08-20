@@ -5,7 +5,7 @@ let evualuationData = [];
 
 function registerEvaluation(){
 
-    registerEvaluationData(evualuationData);
+    registerEvaluationData(evualuationData, HotelId);
     swal({
         type : 'success',
         title : 'Evaluación exitosa',
@@ -16,21 +16,27 @@ function registerEvaluation(){
 }
 
 function closeEvaluationModal() {
-    document.querySelector("#evaluationModal").classList.add("hide");
-    var span = document.getElementsByClassName("close")[0];
+    $("[class*=fa-star]").removeClass('selected-star');
+    let modal = document.getElementById('myModal');
     modal.style.display = "none";
 }
 
 function openEvaluationModal(hotelInfo) {
     let modal = document.getElementById('myModal');
     let hotelName = document.querySelector('#hotelName');
-    hotelName.innerHTML = hotelInfo.hotelName;    
+    hotelName.innerHTML = hotelInfo.hotelName;
+    HotelId =  hotelInfo._id;   
     // When the user clicks the button, open the modal 
         modal.style.display = "block";
+        let btnRegistryEvaluation = document.querySelector("#evaluationButton");
+        btnRegistryEvaluation.addEventListener("click", registerEvaluation); 
+        var span = document.getElementsByClassName("close")[0];
+        span.addEventListener("click", closeEvaluationModal);
+
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
-            modal.style.display = "none";
+            closeEvaluationModal();
         }
     }
 }

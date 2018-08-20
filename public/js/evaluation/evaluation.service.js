@@ -1,4 +1,4 @@
-function registerEvaluationData(pEvaluation) {
+function registerEvaluationData(pEvaluation, pHotelId) {
 
     let respuesta = '';
     let peticion = $.ajax({
@@ -8,12 +8,12 @@ function registerEvaluationData(pEvaluation) {
         dataType: 'json',
         async: false,
         data: {
-            Food : Evaluation[1],
-            CustomerService : Evaluation[2],
-            Rooms: Evaluation[3],
-            Building : Evaluation[4],
-            Cleaning : Evaluation[5],
-            HotelId : Evaluation[6]
+            Food : pEvaluation[0],
+            CustomerService : pEvaluation[1],
+            Rooms: pEvaluation[2],
+            Building : pEvaluation[3],
+            Cleaning : pEvaluation[4],
+            HotelId : pHotelId
         }
     });
 
