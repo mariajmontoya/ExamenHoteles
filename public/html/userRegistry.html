@@ -12,41 +12,42 @@
     </header>
     <body>
         <div>
-            <form>
-                <h3>Registro</h3>
+            <form class = "registry">
+                <h1>Registro</h1>
                 <div>
-                    <label for="txtId">Identificacion</label>
-                    <input type="text" id="txtId">
+                    <!-- <label for="txtId">Identificacion</label> -->
+                    <input name="name" type="text" class="f-input" id="txtId" placeholder="Identificacion"> 
                 </div>
 
                 <div>
-                    <label for="txtFristName">Primer Nombre</label>
-                    <input type="text" id="txtFristName">
+                    <!-- <label for="txtFristName">Primer Nombre</label> -->
+                    <input name="name" type="text" class="f-input" id="txtFristName" placeholder="Primer Nombre">
                 </div>
 
                 <div>
-                    <label for="txtMiddleName">Segundo Nombre</label>
-                    <input type="text" id="txtMiddleName">
+                    <!-- <label for="txtMiddleName">Segundo Nombre</label> -->
+                    <input  name="name" type="text" class="f-input" id="txtMiddleName" placeholder="Segundo Nombre">
                 </div>
 
                 <div>
-                    <label for="txtLastname">Primer Apellido</label>
-                    <input type="text" id="txtLastname">
+                    <!-- <label for="txtLastname">Primer Apellido</label> -->
+                    <input name="name" type="text" class="f-input" id="txtLastname" placeholder="Primer Nombre">
                 </div>
 
                 <div>
-                    <label for="txtSecondLastname">Segundo Apellido</label>
-                    <input type="text" id="txtSecondLastname">
+                    <!-- <label for="txtSecondLastname">Segundo Apellido</label> -->
+                    <input name="name" type="text" class="f-input" id="txtSecondLastname" placeholder="Segundo Apellido">
                 </div>
 
                 <div>
-                    <label for="txtDateBirth">Fecha de nacimiento</label>
-                    <input type="date" id="txtDateBirth">
+                    <!-- <label for="txtDateBirth">Fecha de nacimiento</label> -->
+                    <input name="name" type="date" class="f-input" id="txtDateBirth" placeholder="Fecha de nacimiento">
+                   
                 </div>
 
                 <div>
-                    <label for="txtGender">Sexo</label> 
-                    <select id="txtGender">
+                    <!-- <label for="txtGender">Sexo</label>  -->
+                    <select name="name" class="f-input" id="txtGender" placeholder="Sexo">
                             <option value="">Seleccione una opción</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
@@ -54,23 +55,27 @@
                 </div>
 
                 <div>
-                    <img src="" alt="Foto" id="txtPicture" width="140px" height"140px">
+                    <img src="" alt="Foto" id="txtPicture" width="160px" height"160px">
                     <div><button type="button" id="txtPicture">Subir foto</button></div>
+                    <!-- <input name="name" type="date" class="f-input" id="txtDateBirth" placeholder="Fecha de nacimiento"> -->
                 </div>
 
                 <div>
-                    <label for="txtEmail">Correo electronico</label>
-                    <input type="text" id="txtEmail">
+                    <!-- <label for="txtEmail">Correo electronico</label> -->
+                    <input name="name" type="text" class="f-input" id="txtEmail" placeholder="Correo electronico">
+                    
                 </div>
 
                 <div>
-                    <label for="txtPassword">Contraseña</label>
-                    <input type="text" id="txtPassword">
+                    <!-- <label for="txtPassword">Contraseña</label> -->
+                    <input name="name" type="text" class="f-input" id="txtPassword" placeholder="Contraseña">
+                   
                 </div>
 
                 <div>
-                    <label for="txtPasswordConfirmation">Confirmacion Contraseña</label>
-                    <input type="text" id="txtPasswordConfirmation">
+                    <!-- <label for="txtPasswordConfirmation">Confirmacion Contraseña</label> -->
+                    <input name="name" type="text" class="f-input" id="txtPasswordConfirmation" placeholder="Confirmacion Contraseña">
+
                 </div>
 
                 <div class="buttonContainer">
@@ -89,4 +94,5 @@
         <script src = "../js/application/image.service.js"></script>
     </body>
 </html>
+
     

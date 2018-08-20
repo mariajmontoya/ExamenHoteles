@@ -12,64 +12,82 @@
     </header>
     <body>
         <div>
-            <label for="txthotelName">Nombre del Hotel</label>
-            <input type="text" id="txthotelName">
-        </div>
-            <label for="txtProvincia">Provincia</label>                      
-            <select id="txtProvincia">
-                <option value="">Seleccione una provincia</option>
-                <option value="San José">San José</option>
-                <option value="Cartago">Cartago</option>
-                <option value="Alajuela">Alajuela</option>
-                <option value="Heredia">Heredia</option>
-                <option value="Guanacaste">Guanacaste</option>
-                <option value="Puntarenas">Puntarenas</option>
-                <option value="Limón">Limón</option>
-            </select>
-        </div>
 
-        <div>
-            <label for="txtCanton">Cantón</label> 
-            <select id="txtCanton" >
-                <option value="">Seleccione un cantón</option>
-            </select>     
-        </div>
+            <form class = "registry">
 
-        <div>
-            <label for="txtDistrito">Distrito</label>
-            <select id="txtDistrito">
-                <option value="">Seleccione un distrito</option>
-            </select>      
-        </div>
-        <div>
-            <label for="txtLocation">Ubicación en el mapa</label>
-            <input type="text" id="txtLocation">
-        <div>
-        <!-- <div>
-            <div id="mapLocation" style="width: 100%;height: 300px; margin-top: 100px"></div>
-        </div> -->
-        <div>
-            <label for="txtAddress">Dirección</label>
-            <input type="text" id="txtAddress">
-        </div>
-        <div>
-            <label for="txtCSPhoneClient">Teléfono de servicio al cliente</label>
-            <input type="text" id="txtCSPhone">
-        </div>
-        <div>
-            <label for="txtCSEmailClient">Correo del servicio al cliente</label>
-            <input type="text" id="txtCSEmail">
-        </div>
-        <div>
-            <label for="txtphoneReservations">Teléfono de reservaciones</label>
-            <input type="text" id="txtphoneReservations">
-        </div>
-        <div>
-            <label for="txtemailReservations">Correo de reservaciones</label>
-            <input type="text" id="txtemailReservations">
-        </div>
-        <div class="buttonHotelRegistration">
-            <button type="button" id="btnHotel" class="btnRegistro">Registrar hotel</button>
+            <h1>Registro de hotel</h1>
+
+            <div>
+                <!-- <label for="txthotelName">Nombre del Hotel</label> -->
+                <input name="name" type="text" class="f-input" id="txthotelName" placeholder="Nombre del Hotel">
+            </div>
+                
+            <div>
+                <!-- <label for="txtProvincia">Provincia</label>                       -->
+                <select name="name" id="txtProvincia" class="f-input" placeholder="Provincia">
+                    <option value="">Seleccione una provincia</option>
+                    <option value="San José">San José</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Alajuela">Alajuela</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="Guanacaste">Guanacaste</option>
+                    <option value="Puntarenas">Puntarenas</option>
+                    <option value="Limón">Limón</option>
+                </select>
+            </div>
+
+            <div>
+                <!-- <label for="txtCanton">Cantón</label>  -->
+                <select name="name" id="txtCanton" class="f-input" placeholder="Cantón">
+                    <option value="">Seleccione un cantón</option>
+                </select>     
+            </div>
+
+            <div>
+                <!-- <label for="txtDistrito">Distrito</label> -->
+                <select name="name" id="txtDistrito"  class="f-input" placeholder="Distrito">
+                    <option value="">Seleccione un distrito</option>
+                </select>      
+            </div>
+
+            <div>
+                <!-- <label for="txtLocation">Ubicación en el mapa</label> -->
+                <input name="name" type="text" id="txtLocation" class="f-input" placeholder="Ubicación en el mapa">
+            </div>
+
+            <!-- <div>
+                <div id="mapLocation" style="width: 100%;height: 300px; margin-top: 100px"></div>
+            </div> -->
+            <div>
+                <!-- <label for="txtAddress">Dirección</label> -->
+                <input name="name" type="text" id="txtAddress" class="f-input" placeholder="Dirección">
+            </div>
+
+            <div>
+                <!-- <label for="txtCSPhoneClient">Teléfono de servicio al cliente</label> -->
+                <input name="name" type="text" id="txtCSPhone" class="f-input" placeholder="Teléfono de servicio al cliente">
+            </div>
+
+            <div>
+                <!-- <label for="txtCSEmailClient">Correo del servicio al cliente</label> -->
+                <input name="name" type="text" id="txtCSEmail" class="f-input" placeholder="Correo del servicio al cliente">
+            </div>
+
+            <div>
+                <!-- <label for="txtphoneReservations">Teléfono de reservaciones</label> -->
+                <input name="name" type="text" id="txtphoneReservations" class="f-input" placeholder="Teléfono de reservaciones">
+            </div>
+
+            <div>
+                <!-- <label for="txtemailReservations">Correo de reservaciones</label> -->
+                <input name="name" type="text" id="txtemailReservations" class="f-input" placeholder="Correo de reservaciones">
+            </div>
+
+            <div class="buttonHotelRegistration">
+                <button type="button" id="btnHotel" class="btnRegistro">Registrar hotel</button>
+            </div>
+
+            </form>
         </div>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.5/sweetalert2.all.js"></script>

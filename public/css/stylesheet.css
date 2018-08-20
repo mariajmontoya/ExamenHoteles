@@ -53,7 +53,7 @@ imageFlamingo {
   text-align: center;
   float: right;
 }
-.Find{
+/* .Find{
     letter-spacing: 1pt;
     font-family: Helvetica;
     width : 60px;
@@ -63,7 +63,7 @@ imageFlamingo {
     padding-right:15px;
     margin-left : 15px;
 
-}
+} */
 
 .imgPrincipal{
     height: 300px;
@@ -178,6 +178,7 @@ a.fa-eye {
     float: left;
     margin-left: 100px;
     margin-top : 80px;
+    border:2px solid #2cbaba;
 
 }
 .card header{
@@ -303,4 +304,73 @@ body {
 
 .clearFix {
     clear: both;
+}
+
+h1 {
+  font-size:50px;
+  color: #fff;
+  padding-top:10px;
+  text-align: center;
+  font-family: Helvetica;
+  letter-spacing: 2pt;
+}
+
+body { color:white }
+
+.f-input::placeholder {
+  color: #fff;
+  opacity:0.9;
+}
+
+.f-input {
+  background-color: transparent;
+  border:2px solid #2cbaba;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:35%;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: Helvetica;
+  /* font-weight:500; */
+  font-size: 18px;
+  border-radius: 4px;
+  line-height: 22px;
+  text-align:left;
+  letter-spacing : 2pt;
+
+}
+
+.f-input:focus { 
+  border:2px solid #3a3939; }
+
+textarea {
+  height: 250px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+button {
+  max-width:300px;
+   font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#2cbaba;
+  border-radius:10px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+text-align:center;
+  transition: all 0.3s;
+  margin-bottom:20px;
+
+}
+button:hover {
+ background:#3a3939; 
+}
+
+.registry{
+    text-align:center;
 }
