@@ -1,4 +1,7 @@
 
+console.log("basura");
+
+
 // Funcion encargada de crear el mapa
 function initMap() {
     let divMap = document.querySelector('#map');
