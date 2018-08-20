@@ -16,7 +16,7 @@ function userRegistry(pUser){
             SecondLastname : pUser[4],
             DateBirth : pUser[5],
             Gender : pUser[6],
-            Picture : "foto",
+            imagen : pUser[7],
             Email : pUser[8],
             Password : pUser[9],
             PasswordConfirmation: pUser[10],

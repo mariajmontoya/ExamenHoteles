@@ -6,7 +6,7 @@ let inputLastname;
 let inputSecondLastname;
 let inputDateBirth;
 let inputGender;
-let inputPicture = " ";
+let imagen = imagenUrl;
 let inputEmail;
 let inputPassword;
 let inputPasswordConfirmation;
@@ -20,7 +20,6 @@ let inputUserType = "";
     inputSecondLastname = document.querySelector('#txtSecondLastname'); 
     inputDateBirth = document.querySelector('#txtDateBirth'); 
     inputGender = document.querySelector('#txtGender'); 
-    inputPicture = document.querySelector('#txtPicture'); 
     inputEmail = document.querySelector('#txtEmail');
     inputPassword= document.querySelector('#txtPassword');  
     inputPasswordConfirmation = document.querySelector('#txtPasswordConfirmation'); 
@@ -43,13 +42,13 @@ function userRegistration(){
     let SecondLastname = inputSecondLastname.value;
     let DateBirth = inputDateBirth.value;
     let Gender = inputGender.value;
-    let Picture = " ";
+    let imagen = imagenUrl;
     let Email = inputEmail.value;
     let Password = inputPassword.value;
     let PasswordConfirmation = inputPasswordConfirmation.value;
     let UserType = "";
 
-    infoUser.push(Id, FristName, MiddleName, Lastname, SecondLastname, DateBirth, Gender, Picture, Email, Password, PasswordConfirmation, UserType);
+    infoUser.push(Id, FristName, MiddleName, Lastname, SecondLastname, DateBirth, Gender, imagen, Email, Password, PasswordConfirmation, UserType);
     
     bError = validation();
     if(bError == true){

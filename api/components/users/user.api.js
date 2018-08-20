@@ -11,7 +11,7 @@ module.exports.userRegistry = function(req, res){
         SecondLastname : req.body.SecondLastname,
         DateBirth: req.body.DateBirth,
         Gender : req.body.Gender,
-        Picture : req.body.Picture,
+        imagen : req.body.imagen,
         Email  : req.body.Email,
         Password : req.body.Password,
         PasswordConfirmation : req.body.PasswordConfirmation,

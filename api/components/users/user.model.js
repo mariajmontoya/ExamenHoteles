@@ -9,7 +9,7 @@ let UserSchema = new mongoose.Schema({
     SecondLastname : {type : String, required : false},
     DateBirth: {type : String, required : true},
     Gender : {type : String, required : true},
-    Picture : {type : String, required : true},
+    imagen : {type : String, required : true},
     Email : {type : String, unique : true, required: true},
     Password : {type : String, required : true},
     PasswordConfirmation : {type : String, required : true},
