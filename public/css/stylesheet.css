@@ -3,14 +3,11 @@
     font-family: Helvetica;
 }
 
-body{
-    font-size: 14px;
-    line-height: 1.43;
-    color: #484848;
-    background-color: #fff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+body {
+   background-image: url("paper.gif");
+   background-color: #cccccc;
 }
+
 
 .banner {
     position: relative;
@@ -169,9 +166,13 @@ a.fa-eye {
 
 
 .card{
-    width: 250px;
-    height: 300px;
+    width: 310px;
+    height: 350px;
     border: 1px solid #000;
+    float: left;
+    margin-left: 100px;
+    margin-top : 20px;
+
 }
 .card header{
     background: #6D214F;
@@ -221,4 +222,9 @@ a.fa-eye {
 }
 .card button:hover{
     background: #B33771;
+}
+
+body {
+   background: url("./images/background.jpg") fixed no-repeat;
+   background-size : cover;
 }
