@@ -15,7 +15,6 @@ inputhotelName = document.querySelector('#txthotelName');
 inputProvincia = document.querySelector('#txtProvincia');
 inputCanton = document.querySelector('#txtCanton');
 inputDistrito = document.querySelector('#txtDistrito');
-inputLocation = document.querySelector('#txtLocation');
 inputAddress = document.querySelector('#txtAddress');
 inputCSPhone = document.querySelector('#txtCSPhone');
 inputCSEmail = document.querySelector('#txtCSEmail');
@@ -39,7 +38,7 @@ function hotelRegistration(){
     let Provincia = inputProvincia.value;
     let Canton = inputCanton.value;
     let Distrito = inputDistrito.value;
-    let Location = inputLocation.value;
+    let Location = JSON.stringify({latitud: marker.getPosition().lat(), longitud: marker.getPosition().lng()});
     let Address = inputAddress.value;
     let CSPhone = inputCSPhone.value;
     let CSEmail = inputCSEmail.value;
