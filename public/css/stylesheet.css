@@ -533,3 +533,8 @@ button:hover {
     background-color: 5cb85c;
     color: white;
 }
+
+.stars {
+    height: 92px;
+    margin-left: -36px;
+}
