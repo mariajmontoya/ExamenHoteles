@@ -25,7 +25,10 @@ inputemailReservations = document.querySelector('#txtemailReservations');
 HotelsList();
 
 const botonRegistro = document.querySelector('#btnHotel');
-botonRegistro.addEventListener('click' , hotelRegistration);
+if (botonRegistro != undefined) {
+    botonRegistro.addEventListener('click' , hotelRegistration);
+}   
+
 
 
 function hotelRegistration(){
@@ -90,6 +93,8 @@ function elm(id) {
 }
 
 function listener(element, event, action) {
+    if (element == null)
+    return;
     element.addEventListener(event, action);
 }
 
@@ -296,7 +301,7 @@ function HotelsList(){
      let HotelList = listHotel();
      let cardContainer = document.querySelector('#cardContainer');
 
-     if(cardContainer == undefined);
+     if(cardContainer == undefined)
         return;
     if (HotelList == [])
         return;
