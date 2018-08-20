@@ -1,39 +1,57 @@
 'use strict';
-let Id;
-let FristName;
-let MiddleName;
-let Lastname;
-let SecondLastname;
-let DateBirth;
-let Gender;
-let Picture;
-let Email;
-let Password;
-let PasswordConfirmation;
+let inputId;
+let inputFristName;
+let inputMiddleName;
+let inputLastname;
+let inputSecondLastname;
+let inputDateBirth;
+let inputGender;
+let inputPicture = " ";
+let inputEmail;
+let inputPassword;
+let inputPasswordConfirmation;
+let inputUserType = "";
 
-function initializeVariables() {
-    Id = Number(document.querySelector('#txtId')).value;
-    FristName = document.querySelector('#txtFristName').value;
-    MiddleName = document.querySelector('#txtMiddleName').value;
-    Lastname = document.querySelector('#txtLastname').value;
-    SecondLastname = document.querySelector('#txtSecondLastname').value; 
-    DateBirth = document.querySelector('#txtDateBirth').value; 
-    Gender = document.querySelector('#txtGender').value; 
-    Picture = document.querySelector('#txtPicture').value; 
-    Email = document.querySelector('#txtEmail').value;
-    SecondPasswordLastname = document.querySelector('#txtPassword').value;  
-    PasswordConfirmation = document.querySelector('#txtPasswordConfirmation').value; 
-}
+
+    inputId = document.querySelector('#txtId');
+    inputFristName = document.querySelector('#txtFristName');
+    inputMiddleName = document.querySelector('#txtMiddleName');
+    inputLastname = document.querySelector('#txtLastname');
+    inputSecondLastname = document.querySelector('#txtSecondLastname'); 
+    inputDateBirth = document.querySelector('#txtDateBirth'); 
+    inputGender = document.querySelector('#txtGender'); 
+    inputPicture = document.querySelector('#txtPicture'); 
+    inputEmail = document.querySelector('#txtEmail');
+    inputPassword= document.querySelector('#txtPassword');  
+    inputPasswordConfirmation = document.querySelector('#txtPasswordConfirmation'); 
+
+    const botonRegistro = document.querySelector('#btnRegistro');
+    botonRegistro.addEventListener('click' , userRegistration);
+
+    // inputFiltro.addEventListener('keyup' , function(){
+    //     HotelsList(inputFiltro.value)
+    // });
 
 function userRegistration(){
     let infoUser =[];
     let bError = false;
 
-    initializeVariables();
+    let Id = inputId.value;
+    let FristName = inputFristName.value;
+    let MiddleName = inputMiddleName.value;
+    let Lastname = inputLastname.value;
+    let SecondLastname = inputSecondLastname.value;
+    let DateBirth = inputDateBirth.value;
+    let Gender = inputGender.value;
+    let Picture = " ";
+    let Email = inputEmail.value;
+    let Password = inputPassword.value;
+    let PasswordConfirmation = inputPasswordConfirmation.value;
+    let UserType = "";
 
-    infoUser.push(Id, FristName, MiddleName, Lastname, SecondLastname, DateBirth, Gender, Picture, Email, Password, PasswordConfirmation);
+    infoUser.push(Id, FristName, MiddleName, Lastname, SecondLastname, DateBirth, Gender, Picture, Email, Password, PasswordConfirmation, UserType);
     
-    bError = validar();
+    bError = validation();
     if(bError == true){
         swal({
             type : 'warning',
@@ -44,21 +62,18 @@ function userRegistration(){
         
         console.log('No se pudo registrar el usuario');
     }else{
-        registrarCliente(infoCliente);
+        userRegistry(infoUser);
         swal({
             type : 'success',
             title : 'Registro exitoso',
             text: 'El cliente se registró adecuadamente',
             confirmButtonText : 'Entendido'
-        }).then(
-            function(){
-                window.location.href = "../../html/cliente/cliente_listar.html"
-            }
-        );
-        cleanForm();
+        })
+        // cleanForm();
     }
     
 }
+
 
 function cleanForm(){
     inputId.value = '';    
@@ -84,7 +99,7 @@ function validation(){
 
 
     
-    if(inputId.value == '' || (regexSoloNumeros.test(inputId.value)==false) ){
+    if(inputId.value == ''   ){
         inputId.classList.add('error-input');
         bError = true;
     }else{
@@ -119,7 +134,7 @@ function validation(){
         inputSecondLastname.classList.remove('error-input');
     }
    
-    if(inputDateBirth.value == '' || (regexSoloNumeros.test(inputId.value)==false) ){
+    if(inputDateBirth.value == ''  ){
         inputDateBirth.classList.add('error-input');
         bError = true;
     }else{
@@ -134,7 +149,7 @@ function validation(){
     }
 
     
-    if(inputEmail.value == '' || (regexFormatoCorreo.test(inputEmail.value) == false) ){
+    if(inputEmail.value == ''  ){
         inputEmail.classList.add('error-input');
         bError = true;
     }else{
