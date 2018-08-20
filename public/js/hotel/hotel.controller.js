@@ -326,6 +326,11 @@ function HotelsList(){
             img.src = "../css/images/barcelo.jpg";
             img.alt = "Foto";
 
+            let stars = document.createElement("img");
+            stars.src = "../css/images/5.png";
+            stars.alt = "Foto";
+            stars.classList.add("stars");
+
             let h2 = document.createElement("h2");
             h2.innerHTML = HotelList[i]['hotelName'];
 
@@ -350,6 +355,7 @@ function HotelsList(){
             imgContainer.appendChild(imgInterContainer);
             card.appendChild(imgContainer);
             card.appendChild(h2);
+            card.appendChild(stars);
             card.appendChild(buttonMore);
             card.appendChild(buttonScore);
             cardContainer.appendChild(card);
