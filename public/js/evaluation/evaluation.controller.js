@@ -28,9 +28,6 @@ function openEvaluationModal() {
 $(document).ready(function(){
     $(".starContainer").click(function(e) {
         addPoint(e.currentTarget.id, e);
-        // e.addClass("selected-star");
-        // $(".fa-star").removeClass('selected-star');
-        // $("#" + e.currentTarget.id).addClass('selected-star');
         console.log(e);
     })
 });
