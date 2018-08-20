@@ -516,6 +516,8 @@ button:hover {
     background-color: #2cbaba;
     color: white;
     margin-bottom: 20px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
 }
 
 .modal-body {padding: 2px 16px;}

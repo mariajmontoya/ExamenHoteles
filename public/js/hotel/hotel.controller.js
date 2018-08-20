@@ -27,9 +27,6 @@ HotelsList();
 const botonRegistro = document.querySelector('#btnHotel');
 botonRegistro.addEventListener('click' , hotelRegistration);
 
-inputFiltro.addEventListener('keyup' , function(){
-    HotelsList(inputFiltro.value)
-});
 
 function hotelRegistration(){
     let infoHotel =[];
@@ -297,8 +294,10 @@ function hotelValidation(){
 
 function HotelsList(){
      let HotelList = listHotel();
-   
+     let cardContainer = document.querySelector('#cardContainer');
 
+     if(cardContainer == undefined);
+        return;
     if (HotelList == [])
         return;
 
@@ -306,7 +305,7 @@ function HotelsList(){
         if(HotelList[i]['desactivado']){
             continue;
         } else { 
-            let cardContainer = document.querySelector('#cardContainer');
+
             console.log(HotelList[i]);
 
             let card = document.createElement("div");
