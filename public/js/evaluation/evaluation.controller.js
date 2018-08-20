@@ -1,7 +1,7 @@
 let HotelId;
 let evualuationData = [];
 
-document.querySelector("#close").addEventListener('click', closeEvaluationModal);
+
 
 function registerEvaluation(){
 
@@ -17,10 +17,22 @@ function registerEvaluation(){
 
 function closeEvaluationModal() {
     document.querySelector("#evaluationModal").classList.add("hide");
+    var span = document.getElementsByClassName("close")[0];
+    modal.style.display = "none";
 }
 
-function openEvaluationModal() {
-    document.querySelector("#evaluationModal").classList.remove("hide");
+function openEvaluationModal(hotelInfo) {
+    let modal = document.getElementById('myModal');
+    let hotelName = document.querySelector('#hotelName');
+    hotelName.innerHTML = hotelInfo.hotelName;    
+    // When the user clicks the button, open the modal 
+        modal.style.display = "block";
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
 
 // let activeElement

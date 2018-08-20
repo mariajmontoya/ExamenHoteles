@@ -298,46 +298,67 @@ function hotelValidation(){
 function HotelsList(){
      let HotelList = listHotel();
    
- 
-    let tbody = document.querySelector('#tblHotels tbody');
-    tbody.innerHTML = '';
+
+    if (HotelList == [])
+        return;
 
     for(let i = 0; i < HotelList.length; i++){
         if(HotelList[i]['desactivado']){
             continue;
         } else { 
-            
-            let fila = tbody.insertRow();
-            let celdahotelName = fila.insertCell();
-            // let celdaFotoHotel = fila.insertCell();
-            // let celdaEvaluaciones = fila.insertCell();
-            // let celdaVer = fila.insertCell();
-            // let celdaModificar = fila.insertCell();
-            // let celdaEliminar = fila.insertCell();
-            // let celdaEstado = fila.insertCell();
-            
-        
-            celdahotelName.innerHTML = HotelList[i]['hotelName'];
-            // celdaFotoHotel.innerHTML = HotelList[i]['fotoHotel'];
-            // celdaEvaluaciones.innerHTML = HotelList[i]['evaluaciones'];
-            // celdaVer.innerHTML = HotelList[i]['ver'];
-            // celdaModificar.innerHTML = HotelList[i]['modificar'];
-            // celdaEliminar.innerHTML = HotelList[i]['eliminar'];
-            // celdaEstado.innerHTML = HotelList[i]['estado'];
+            let cardContainer = document.querySelector('#cardContainer');
+            console.log(HotelList[i]);
 
-            // let aModificar = document.createElement('a');
-            // aModificar.classList.add('fas');
-            // aModificar.classList.add('fa-pen');
-            // aModificar.dataset._id =  listaPersonas[i]['_id'];
-            
-            // cConfiguracion.appendChild(aModificar);
+            let card = document.createElement("div");
+            card.classList.add("card");
 
+            let imgContainer = document.createElement("div");
+
+
+            let imgInterContainer = document.createElement("div");
+            imgInterContainer.classList.add("img_container");
+
+            let img = document.createElement("img");
+            img.src = "../css/images/barcelo.jpg";
+            img.alt = "Foto";
+
+            let h2 = document.createElement("h2");
+            h2.innerHTML = HotelList[i]['hotelName'];
+
+            let buttonMore = document.createElement("button");
+            let btnMoreText = document.createTextNode("Ver más");
+            buttonMore.appendChild(btnMoreText);
+            buttonMore.addEventListener("click", function(){
+                showHotelMoreInfo(HotelList[i]);
+            });
+            buttonMore.classList.add("see");
+
+            let buttonScore = document.createElement("button");
+            let buttonScoreText = document.createTextNode("Evaluar hotel");
+            buttonScore.appendChild(buttonScoreText);
+            buttonScore.addEventListener("click", function(){
+                openEvaluationModal(HotelList[i]);
+            });
+            buttonScore.classList.add("score");
+
+   
+            imgInterContainer.appendChild(img);
+            imgContainer.appendChild(imgInterContainer);
+            card.appendChild(imgContainer);
+            card.appendChild(h2);
+            card.appendChild(buttonMore);
+            card.appendChild(buttonScore);
+            cardContainer.appendChild(card);
 
         }
         
     }
 
 };
+
+function showHotelMoreInfo(pHotelInfo) {
+    console.log(pHotelInfo);
+}
 
 
 

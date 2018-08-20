@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="../css/reset.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../public/css/stylesheet.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
 
     </head>
     <header>
@@ -43,47 +45,88 @@
                     </div>
                 </div>
             </div>
-            <div class="card" >
-                <div>
-                    <div class="img_container">
-                        <img src="../css/images/barcelo.jpg" alt="Foto">
-                    </div>
-                </div>
-                <h2>Barcelo</h2>
-            
-                
-                <button type="button" class = "see">Ver más</button>
-                <button type="button" class = "score">Evaluar hotel</button>
+            <div id="cardContainer">
             </div>
+            <div class="clearFix"></div>
 
-            <div class="card" >
-                <div>
-                    <div class="img_container">
-                        <img src="../css/images/intercontinental.jpg" alt="Foto">
+            <div id="myModal" class="modal evaluationModal hide">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <output id="hotelName" class="hotelName"></output>
+                    </div>
+                    <div class="modal-body">
+                            <div class="evaluationContainer">
+                                    <div class="descriptContainer">
+                                        <div><h4>Comida</h4></div>
+                                        <div><h4>Servicio al cliente</h4></div>
+                                        <div><h4>Cuartos</h4></div>
+                                        <div><h4>Infraestructura</h4></div>
+                                        <div><h4>Limpieza</h4></div>
+                                    </div>
+                        
+                                    <div class="starGeneralContainer">
+                                        <div class="iconStarContainer">
+                                            <span id="food_1" class="starContainer"><i  class="food_1 fas fa-star colorStar food"></i></span>
+                                            <span id="food_2" class="starContainer"><i  class="food_2 fas fa-star colorStar food"></i></span>
+                                            <span id="food_3" class="starContainer"><i  class="food_3 fas fa-star colorStar food"></i></span>
+                                            <span id="food_4" class="starContainer"><i  class="food_4 fas fa-star colorStar food"></i></span>
+                                            <span id="food_5" class="starContainer"><i  class="food_5 fas fa-star colorStar food"></i></span>
+                                        </div>
+                                        <div class="iconStarContainer">
+                                            <span id="customerService_1" class="starContainer"><i id="customerService_1" class="customerService_1 fas fa-star"></i></span>
+                                            <span id="customerService_2" class="starContainer"><i id="customerService_2" class="customerService_2 fas fa-star"></i></span>
+                                            <span id="customerService_3" class="starContainer"><i id="customerService_3" class="customerService_3 fas fa-star"></i></span>
+                                            <span id="customerService_4" class="starContainer"><i id="customerService_4" class="customerService_4 fas fa-star"></i></span>
+                                            <span id="customerService_5" class="starContainer"><i id="customerService_5" class="customerService_5 fas fa-star"></i></span>
+                                        </div>
+                                        <div class="iconStarContainer">
+                                            <span id="rooms_1" class="starContainer"><i id="rooms_1" class="rooms_1 fas fa-star"></i></span>
+                                            <span id="rooms_2" class="starContainer"><i id="rooms_2" class="rooms_2 fas fa-star"></i></span>
+                                            <span id="rooms_3" class="starContainer"><i id="rooms_3" class="rooms_3 fas fa-star"></i></span>
+                                            <span id="rooms_4" class="starContainer"><i id="rooms_4" class="rooms_4 fas fa-star"></i></span>
+                                            <span id="rooms_5" class="starContainer"><i id="rooms_5" class="rooms_5 fas fa-star"></i></span>
+                                        </div>
+                                        <div class="iconStarContainer">
+                                            <span id="building_1" class="starContainer"><i id="building_1" class="building_1 fas fa-star"></i></span>
+                                            <span id="building_2" class="starContainer"><i id="building_2" class="building_2 fas fa-star"></i></span>
+                                            <span id="building_3" class="starContainer"><i id="building_3" class="building_3 fas fa-star"></i></span>
+                                            <span id="building_4" class="starContainer"><i id="building_4" class="building_4 fas fa-star"></i></span>
+                                            <span id="building_5" class="starContainer"><i id="building_5" class="building_5 fas fa-star"></i></span>
+                                        </div>
+                        
+                                        <div class="iconStarContainer">
+                                            <span id="cleaning_1" class="starContainer"><i id="cleaning_1" class="cleaning_1 fas fa-star"></i></span>
+                                            <span id="cleaning_2" class="starContainer"><i id="cleaning_2" class="cleaning_2 fas fa-star"></i></span>
+                                            <span id="cleaning_3" class="starContainer"><i id="cleaning_3" class="cleaning_3 fas fa-star"></i></span>
+                                            <span id="cleaning_4" class="starContainer"><i id="cleaning_4" class="cleaning_4 fas fa-star"></i></span>
+                                            <span id="cleaning_5" class="starContainer"><i id="cleaning_5" class="cleaning_5 fas fa-star"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="clearFix"></div>
+                                    <div>
+                                        <button class="evaluationButton">Calificar</button>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="modal-footer">
                     </div>
                 </div>
-                <h2>Intercontinental</h2>
-                
-                <button type="button" class = "see">Ver más</button>
-                <button type="button" class = "score">Evaluar hotel</button>
-            </div>
-
-            <div class="card" >
-                <div>
-                    <div class="img_container">
-                        <img src="../css/images/riu.jpg" alt="Foto">
-                    </div>
-                </div>
-                <h2>Riu</h2>
-                
-                <button type="button" class = "see">Ver más</button>
-                <button type="button" class = "score">Evaluar hotel</button>
             </div>
         </main>
         <footer>
 
         </footer>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.5/sweetalert2.all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="../js/application/jquery-3.3.1.js"></script>
+    <script src="../js/hotel/hotel.service.js"></script>
+    <script src="../js/evaluation/evaluation.service.js"></script>
+    <script src="../js/hotel/hotel.controller.js"></script>
+    <script src="../js/evaluation/evaluation.controller.js"></script>
 
 </html>
     
