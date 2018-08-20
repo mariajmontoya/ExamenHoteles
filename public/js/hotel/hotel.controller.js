@@ -67,7 +67,7 @@ function hotelRegistration(){
             confirmButtonText : 'Entendido'
         })
         HotelsList();
-        // limpiarFormulario();
+        cleanForm();
     }
     
 }
@@ -359,6 +359,20 @@ function HotelsList(){
     }
 
 };
+
+function cleanForm(){
+    inputhotelName.value = '';    
+    inputProvincia.value = '';
+    inputCanton.value = '';
+    inputDistrito.value = '';
+    inputLocation.value = '';
+    inputAddress.value = '';
+    // document.querySelector('#txtImagen').src = "";
+    inputCSPhone.value = '',
+    inputCSEmail.value = '';
+    inputphoneReservations.value = '';
+    inputemailReservations.value = '';
+}
 
 function showHotelMoreInfo(pHotelInfo) {
     console.log(pHotelInfo);
