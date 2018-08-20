@@ -257,7 +257,7 @@ function hotelValidation(){
         inputAddress.classList.remove('error-input');
     }
     
-    if(inputCSPhone.value == ''  ){
+    if(inputCSPhone.value == '' || (regexSoloNumeros.test(inputCSPhone.value)==false) ){
         inputCSPhone.classList.add('error-input');
         bError = true;
     }else{
@@ -273,7 +273,7 @@ function hotelValidation(){
     }
 
    
-    if(inputphoneReservations.value == '' ){
+    if(inputphoneReservations.value == '' || (regexSoloNumeros.test(inputphoneReservations.value)==false)){
         inputphoneReservations.classList.add('error-input');
         bError = true;
     }else{
@@ -374,39 +374,8 @@ function showHotelMoreInfo(pHotelInfo) {
 
 
 
-function ftnEliminarTiquete(){
-	let tiquetes = [this.name,true];
-    desactivarTiquete(tiquetes);
-    swal({
-        type : 'success',
-        title : 'Eliminación exitosa',
-        text: 'El tiquetes ha sido eliminado adecuadamente',
-        confirmButtonText : 'Entendido'
-    });
-    ListaTiquete();
-};
-
-function guardarTiquete(Tiquete) {
-    sessionStorage.setItem("tiqueteSeleccionado", JSON.stringify(Tiquete));
-};
-
-function obtenerDatosEditar(){
-
-    botonRegistrar.hidden = true;
-    botonActualizar.hidden = false;
 
 
-    let id /*este id lo declaramos como variale global*/ /*ver ejemplo de abajo*/=  this.dataset._id;// se obtiene el id del usuario seleccionado //con el metodo this acceso a la informacion que estoy llamando con el binding 
-    let usuario = obtenerPersonaPorId(id);
 
-    let idPersonaSeleccionada =  this.dataset._id;
-    let usuario = obtenerPersonaPorId(idPersonaSeleccionada);
 
-    inputNombre.value =  usuario['nombre_completo'];
-    inputEmail.value = usuario['correo'];
-    inputTelefono.value = usuario['telefono'];
-    inputEdad.value = usuario['edad'];
 
-    imagen.src = usuario['foto'];
-
-};
