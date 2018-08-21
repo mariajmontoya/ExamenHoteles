@@ -334,15 +334,6 @@ function HotelsList(){
             let h2 = document.createElement("h2");
             h2.innerHTML = HotelList[i]['hotelName'];
 
-
-            let buttonMore = document.createElement("button");
-            let btnMoreText = document.createTextNode("Ver más");
-            buttonMore.appendChild(btnMoreText);
-            buttonMore.addEventListener("click", function(){
-                showHotelMoreInfo(HotelList[i]);
-            });
-            buttonMore.classList.add("see");
-
             let buttonScore = document.createElement("button");
             let buttonScoreText = document.createTextNode("Evaluar hotel");
             buttonScore.appendChild(buttonScoreText);
@@ -355,7 +346,7 @@ function HotelsList(){
             let buttonStatusText = document.createTextNode("Estado hotel");
             buttonStatus.appendChild(buttonStatusText);
             buttonStatus.addEventListener("click", function(){
-                openEvaluationModal(HotelList[i]);
+                changeHotelStatus(HotelList[i]);
             });
             buttonStatus.classList.add("status");
 
@@ -363,7 +354,7 @@ function HotelsList(){
             let buttonDeleteText = document.createTextNode("Eliminar hotel");
             buttonDelete.appendChild(buttonDeleteText);
             buttonDelete.addEventListener("click", function(){
-                openEvaluationModal(HotelList[i]);
+                deteleHotel(HotelList[i]);
             });
             buttonDelete.classList.add("status");
 
@@ -371,7 +362,7 @@ function HotelsList(){
             let buttonUpdateText = document.createTextNode("Editar hotel");
             buttonUpdate.appendChild(buttonUpdateText);
             buttonUpdate.addEventListener("click", function(){
-                openEvaluationModal(HotelList[i]);
+                updateHotelData(HotelList[i]);
             });
             buttonUpdate.classList.add("status");
 
@@ -380,7 +371,6 @@ function HotelsList(){
             card.appendChild(imgContainer);
             card.appendChild(h2);
             card.appendChild(stars);
-            card.appendChild(buttonMore);
             card.appendChild(buttonScore);
             card.appendChild(buttonStatus);
             card.appendChild(buttonDelete);
@@ -392,6 +382,30 @@ function HotelsList(){
     }
 
 };
+
+function changeHotelStatus(hotelData) {
+    console.log("cambiar estado hotel");
+    if(hotelData["Status"] == "Desactivado") {
+        hotelData["Status"] = "Activado";
+    } else if(hotelData["Status"] == "Activado") {
+        hotelData["Status"] = "Desactivado";
+    }
+
+    updateHotelStatus(hotelData, hotelData["Status"]);
+    swal({
+        type : 'success',
+        title : 'Cambio de estado exitoso',
+        confirmButtonText : 'Entendido'
+    })
+}
+
+function deteleHotel(hotelData) {
+    console.log("eliminar hotel");
+}
+
+function updateHotelData(params) {
+    console.log("actualizar información del usuario");
+}
 
 function cleanForm(){
     inputhotelName.value = '';    

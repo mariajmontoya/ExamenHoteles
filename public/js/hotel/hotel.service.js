@@ -94,7 +94,7 @@ function updateHotel(photel){
 }
 
 
-function deactivateHotel(photel, estado) {
+function updateHotelStatus(photel, estado) {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/deactivateHotel',
@@ -104,7 +104,7 @@ function deactivateHotel(photel, estado) {
         async: false,
         data: {
             _id: photel._id,
-            Desactivado: estado,
+            Status: estado,
         }
     });
 

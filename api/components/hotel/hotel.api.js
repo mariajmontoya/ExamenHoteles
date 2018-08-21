@@ -13,7 +13,8 @@ module.exports.hotelRegistry = function(req, res){
         CSPhone : req.body.CSPhone,
         CSEmail : req.body.CSEmail,
         phoneReservations : req.body.phoneReservations,
-        emailReservations : req.body.emailReservations
+        emailReservations : req.body.emailReservations,
+        Status: "Desactivado"
         });
 
     newHotel.save(function(error){
