@@ -300,6 +300,8 @@ function HotelsList(){
     // }
     // tbody.innerHTML = '';
 
+    cardContainer.innerHTML = '';
+
      if(cardContainer == undefined)
         return;
     if (HotelList == [])
@@ -354,7 +356,7 @@ function HotelsList(){
             let buttonDeleteText = document.createTextNode("Eliminar hotel");
             buttonDelete.appendChild(buttonDeleteText);
             buttonDelete.addEventListener("click", function(){
-                deteleHotel(HotelList[i]);
+                deleteHotel(HotelList[i]);
             });
             buttonDelete.classList.add("status");
 
@@ -399,49 +401,17 @@ function changeHotelStatus(hotelData) {
     })
 }
 
-function deteleHotel(hotelData) {
-    console.log("eliminar hotel");
-}
-
-function deleteHotel (){
-    let photel = this.name;
-    
-    const swalWithBootstrapButtons = swal.mixin({
-        confirmButtonClass: 'btn btn-success',
-        cancelButtonClass: 'btn btn-danger',
-        buttonsStyling: false,
-      })
-      
-      swalWithBootstrapButtons({
-        title: 'Eliminar hotel',
-        text: "¿Deseas eliminar el hotel?",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Si, eliminar!',
-        cancelButtonText: 'No, cancelar!',
-        reverseButtons: true
-      }).then((result) => {
-        if (result.value) {
-          swalWithBootstrapButtons(
-            'Eliminado!',
-            'El hotel ha sido eliminado',
-            'success'
-          )
-
-          deleteHotel(photel);
-          HotelsList();
-            
-        } else if (
-          // Read more about handling dismissals
-          result.dismiss === swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons(
-            'Cancelado!',
-            'El hotel no ha sido eliminado',
-            'error'
-          )
+function deleteHotel(hotelData) {
+    deleteHotelData(hotelData);
+    swal({
+        type : 'success',
+        title : 'Hotel Eliminado',
+        confirmButtonText : 'Entendido'
+    }).then(
+        function (){
+            HotelsList();
         }
-      })
+    );
 };
 
 

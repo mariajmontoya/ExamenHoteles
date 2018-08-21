@@ -120,7 +120,7 @@ function updateHotelStatus(photel, estado) {
     return respuesta;
 }
 
-function deleteHotel(pHotel){
+function deleteHotelData(pHotel){
     let respuesta = '';
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/deleteHotel',
@@ -129,7 +129,7 @@ function deleteHotel(pHotel){
         dataType : 'json',
         async : false,
         data:{
-            _id : pHotel
+            _id : pHotel._id
         }
       });
     
