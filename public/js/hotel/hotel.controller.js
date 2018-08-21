@@ -34,26 +34,24 @@ inputemailReservations = document.querySelector('#txtemailReservations');
 
 HotelsList();
 
-function getHotelForUpdate() {
-    return JSON.parse(localStorage.getItem("hotelForUpdate"));
-}
+// function getHotelForUpdate() {
+//     return JSON.parse(localStorage.getItem("hotelForUpdate"));
+// }
 
-function fillOutHotelData() {
-    let hotel = getHotelForUpdate();
+// function fillOutHotelData() {
+//     let hotel = getHotelForUpdate();
 
-    if (hotel == [])
-        return;
+//     if (hotel == [])
+//         return;
 
-    console.log(hotel);
+//     console.log(hotel);
 
-}
+// }
 
 const botonRegistro = document.querySelector('#btnHotel');
 if (botonRegistro != undefined) {
     botonRegistro.addEventListener('click' , hotelRegistration);
 }   
-
-
 
 function hotelRegistration(){
     let infoHotel =[];
@@ -90,8 +88,9 @@ function hotelRegistration(){
             text: 'El hotel se registró adecuadamente',
             confirmButtonText : 'Entendido'
         })
-        HotelsList();
         cleanForm();
+        HotelsList();
+       
     }
     
 }

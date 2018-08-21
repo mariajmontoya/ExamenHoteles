@@ -1,5 +1,4 @@
 
-console.log("basura");
 
 
 // Funcion encargada de crear el mapa

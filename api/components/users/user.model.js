@@ -4,9 +4,9 @@ let mongoose = require('mongoose');
 let UserSchema = new mongoose.Schema({
     Id : {type : String, required: true},
     FristName: {type: String, required : true},
-    MiddleName: {type : String, required : false},
+    MiddleName: {type : String, required : true},
     Lastname : {type : String, required : true},
-    SecondLastname : {type : String, required : false},
+    SecondLastname : {type : String, required : true},
     DateBirth: {type : String, required : true},
     Gender : {type : String, required : true},
     imagen : {type : String, required : true},
