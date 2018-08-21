@@ -15,6 +15,22 @@ router.route('/listUser')
 });
 
 
+router.route('/deleteUser') 
+    .post(function(req, res){
+    hotel.deleteHotel(req, res);
+});
+
+router.route('/filterUser')
+    .get(function(req, res){
+    hotel.filterHotel(req, res);
+}); 
+
+router.route('/updateUser')
+    .post(function(req, res){
+    hotel.updateHotel(req, res); 
+});
+
+
 module.exports = router;
 
 
