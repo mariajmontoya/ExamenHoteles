@@ -323,7 +323,7 @@ function HotelsList(){
     // }
     // tbody.innerHTML = '';
 
-    cardContainer.innerHTML = '';
+    
 
      if(cardContainer == undefined)
         return;
@@ -335,6 +335,8 @@ function HotelsList(){
             // let fila = tbody.insertRow();
             continue;
         } else { 
+
+            cardContainer.innerHTML = '';
 
             console.log(HotelList[i]);
 
