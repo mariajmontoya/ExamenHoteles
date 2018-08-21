@@ -344,7 +344,32 @@ function HotelsList(){
             });
             buttonScore.classList.add("score");
 
-   
+            let buttonStatus = document.createElement("button");
+            let buttonStatusText = document.createTextNode("Estado hotel");
+            buttonStatus.appendChild(buttonStatusText);
+            buttonStatus.addEventListener("click", function(){
+                openEvaluationModal(HotelList[i]);
+            });
+            buttonStatus.classList.add("status");
+
+            let buttonDelete = document.createElement("button");
+            let buttonDeleteText = document.createTextNode("Eliminar hotel");
+            buttonDelete.appendChild(buttonDeleteText);
+            buttonDelete.addEventListener("click", function(){
+                openEvaluationModal(HotelList[i]);
+            });
+            buttonDelete.classList.add("status");
+
+            let buttonUpdate = document.createElement("button");
+            let buttonUpdateText = document.createTextNode("Editar hotel");
+            buttonUpdate.appendChild(buttonUpdateText);
+            buttonUpdate.addEventListener("click", function(){
+                openEvaluationModal(HotelList[i]);
+            });
+            buttonUpdate.classList.add("status");
+
+            
+
             imgInterContainer.appendChild(img);
             imgContainer.appendChild(imgInterContainer);
             card.appendChild(imgContainer);
@@ -352,6 +377,9 @@ function HotelsList(){
             card.appendChild(stars);
             card.appendChild(buttonMore);
             card.appendChild(buttonScore);
+            card.appendChild(buttonStatus);
+            card.appendChild(buttonDelete);
+            card.appendChild(buttonUpdate);
             cardContainer.appendChild(card);
 
         }
