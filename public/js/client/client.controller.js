@@ -68,7 +68,7 @@ function userRegistration(){
             text: 'El cliente se registró adecuadamente',
             confirmButtonText : 'Entendido'
         })
-        // cleanForm();
+        cleanForm();
     }
     
 }
@@ -98,7 +98,7 @@ function validation(){
 
 
     
-    if(inputId.value == ''   ){
+    if(inputId.value == ''|| (regexSoloNumeros.test(inputId.value)==false)){
         inputId.classList.add('error-input');
         bError = true;
     }else{
@@ -148,25 +148,26 @@ function validation(){
     }
 
     
-    if(inputEmail.value == ''  ){
+    if(inputEmail.value == ''  || (regexFormatoCorreo.test(inputEmail.value)==false) ){
         inputEmail.classList.add('error-input');
         bError = true;
     }else{
         inputEmail.classList.remove('error-input');
     }
 
-
-    if(inputPassword.value == '' ){
+    if(inputPassword.value == ''){
         inputPassword.classList.add('error-input');
         bError = true;
     }else{
         inputPassword.classList.remove('error-input');
     }
 
-    if(inputPasswordConfirmation.value == '' ){
+    if(inputPassword.value != inputPasswordConfirmation.value){
+        inputPassword.classList.add('error-input');
         inputPasswordConfirmation.classList.add('error-input');
         bError = true;
     }else{
+        inputPassword.classList.remove('error-input');
         inputPasswordConfirmation.classList.remove('error-input');
     }
 

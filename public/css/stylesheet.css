@@ -329,7 +329,7 @@ body {
 }
 
 h1 {
-  font-size:50px;
+  font-size:45px;
   color: #fff;
   padding-top:10px;
   text-align: center;
@@ -544,4 +544,74 @@ button:hover {
     background-repeat: no-repeat; 
     background-position: right;
     border-bottom: 2px solid #c0392b;
+}
+
+.titulo-registro{
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 45px;
+    letter-spacing: 3pt;
+    color: #ffffff;
+    margin-top: 50px;
+}
+
+.email{
+    background-color: transparent;
+    border:2px solid #2cbaba;
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width:35%;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: Helvetica;
+    /* font-weight:500; */
+    font-size: 18px;
+    border-radius: 4px;
+    line-height: 22px;
+    text-align:left;
+    letter-spacing : 2pt;
+    margin-top : 100px;
+    margin-left: 375px;
+
+}
+
+.pass{
+    background-color: transparent;
+    border:2px solid #2cbaba;
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width:35%;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: Helvetica;
+    /* font-weight:500; */
+    font-size: 18px;
+    border-radius: 4px;
+    line-height: 22px;
+    text-align:left;
+    letter-spacing : 2pt;
+    margin-top : 20px;
+    margin-left: 375px;
+  
+}
+
+.loginButton{
+    max-width:300px;
+    font-family: Arial, Helvetica, sans-serif;
+   width: 100%;
+   background:#2cbaba;
+   border-radius:10px;
+   border:0;
+   cursor:pointer;
+   color:white;
+   font-size:24px;
+   padding-top:10px;
+   padding-bottom:10px;
+text-align:center;
+   transition: all 0.3s;
+   margin-bottom:20px;
+   margin-top: 25px;
+   margin-left: 535px;
 }
