@@ -24,6 +24,20 @@ inputemailReservations = document.querySelector('#txtemailReservations');
 
 HotelsList();
 
+function getHotelForUpdate() {
+    return JSON.parse(localStorage.getItem("hotelForUpdate"));
+}
+
+function fillOutHotelData() {
+    let hotel = getHotelForUpdate();
+
+    if (hotel == [])
+        return;
+
+    console.log(hotel);
+
+}
+
 const botonRegistro = document.querySelector('#btnHotel');
 if (botonRegistro != undefined) {
     botonRegistro.addEventListener('click' , hotelRegistration);
@@ -415,8 +429,13 @@ function deleteHotel(hotelData) {
 };
 
 
-function updateHotelData(params) {
-    console.log("actualizar información del usuario");
+function updateHotelData(hotaData) {
+    setHoteLocalStorage(hotaData);
+    window.location.replace('../../../public/html/hotelRegistry.html');
+}
+
+function setHoteLocalStorage(hotaData) {
+    localStorage.setItem("hotelForUpdate", JSON.stringify(hotaData));
 }
 
 function cleanForm(){
@@ -438,7 +457,7 @@ function showHotelMoreInfo(pHotelInfo) {
 }
 
 
-function updateHotel(){    ////////FUNCION UPDATE HOTEL
+function updateHotel(){
     let infoHotel =[];
     let bError = false;
 
@@ -476,7 +495,7 @@ function updateHotel(){    ////////FUNCION UPDATE HOTEL
             confirmButtonText : 'Entendido'
         });
 
-        window.location.replace('../../html/cliente/cliente_listar.html'); // OMG NO SE COMO LLEGAR A LA FUCKIN CARPETA
+
 
     }
     
