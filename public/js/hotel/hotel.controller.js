@@ -325,18 +325,18 @@ function HotelsList(){
 
     
 
-     if(cardContainer == undefined)
+     if(cardContainer == undefined) {
         return;
+     } else {
+        cardContainer.innerHTML = '';
+     }
+
     if (HotelList == [])
         return;
 
     for(let i = 0; i < HotelList.length; i++){
-        if(HotelList[i]['desactivado']){ // .toLowerCase().includes(pFiltro.toLowerCase())
             // let fila = tbody.insertRow();
-            continue;
-        } else { 
 
-            cardContainer.innerHTML = '';
 
             console.log(HotelList[i]);
 
@@ -414,7 +414,7 @@ function HotelsList(){
             }
             cardContainer.appendChild(card);
 
-        }
+
         
     }
 
