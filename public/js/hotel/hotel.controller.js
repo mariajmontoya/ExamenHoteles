@@ -403,6 +403,48 @@ function deteleHotel(hotelData) {
     console.log("eliminar hotel");
 }
 
+function deleteHotel (){
+    let photel = this.name;
+    
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false,
+      })
+      
+      swalWithBootstrapButtons({
+        title: 'Eliminar hotel',
+        text: "¿Deseas eliminar el hotel?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.value) {
+          swalWithBootstrapButtons(
+            'Eliminado!',
+            'El hotel ha sido eliminado',
+            'success'
+          )
+
+          deleteHotel(photel);
+          HotelsList();
+            
+        } else if (
+          // Read more about handling dismissals
+          result.dismiss === swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons(
+            'Cancelado!',
+            'El hotel no ha sido eliminado',
+            'error'
+          )
+        }
+      })
+};
+
+
 function updateHotelData(params) {
     console.log("actualizar información del usuario");
 }
