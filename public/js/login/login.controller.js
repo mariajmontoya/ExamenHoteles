@@ -11,7 +11,7 @@ function obtenerUrl() {
     let paginaUrl = window.location.href;
     let valor = false;
     
-    if(paginaUrl.includes("iniciar_sesion.html")){
+    if(paginaUrl.includes("login.html")){
         valor = true;
     }
  
@@ -33,7 +33,7 @@ function ftnRevisionCredenciales (){
                 confirmButtonText : 'Entendido'
             }).then(
                 function(){
-                    window.location.replace('../../html/general/index.html');
+                    window.location.replace('../../html/login.html');
                 }
             );
         } else {
@@ -48,7 +48,7 @@ function ftnRevisionCredenciales (){
                     confirmButtonText : 'Entendido'
                 }).then(
                     function(){
-                        window.location.replace('../../html/general/index.html');
+                        window.location.replace('../../html/login.html');
                     }
                 );
             }
@@ -91,7 +91,7 @@ function validarCredenciales(correo, contrasenna) {
 
 function cerrarSesion() {
     removerCredenciales();
-    window.location.replace('../../html/general/index.html');
+    window.location.replace('../../html/login.html');
 }
 
 function redireccionarUsuario() {
