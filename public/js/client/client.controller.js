@@ -98,7 +98,7 @@ function validation(){
 
 
     
-    if(inputId.value == ''|| (regexSoloNumeros.test(inputId.value)==false)){
+    if(inputId.value == '' ){
         inputId.classList.add('error-input');
         bError = true;
     }else{
