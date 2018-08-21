@@ -12,6 +12,16 @@ let inputphoneReservations;
 let inputemailReservations;
 
 
+document.querySelector("#userName").value = getUsuarioAutenticado().FristName;
+
+if (getUsuarioAutenticado().UserType == 1) {
+    document.querySelector("#btnGeneral").classList.add("hide"); 
+    document.querySelector("#btnRegistro").classList.add("hide"); 
+}
+const aSalirUsuario = document.querySelector('#btnSalir');
+
+aSalirUsuario.addEventListener('click' , cerrarSesion);
+
 inputhotelName = document.querySelector('#txthotelName');
 inputProvincia = document.querySelector('#txtProvincia');
 inputCanton = document.querySelector('#txtCanton');
@@ -342,6 +352,8 @@ function HotelsList(){
             img.src = "../css/images/barcelo.jpg";
             img.alt = "Foto";
 
+
+            let starsContainer = document.createElement("div");
             let stars = document.createElement("img");
             stars.src = "../css/images/5.png";
             stars.alt = "Foto";
@@ -381,16 +393,24 @@ function HotelsList(){
                 updateHotelData(HotelList[i]);
             });
             buttonUpdate.classList.add("status");
+            let status = document.createElement("h4");
+            status.innerHTML = HotelList[i]['Status']
 
             imgInterContainer.appendChild(img);
             imgContainer.appendChild(imgInterContainer);
             card.appendChild(imgContainer);
             card.appendChild(h2);
-            card.appendChild(stars);
+            starsContainer.appendChild(stars);
+            card.appendChild(starsContainer);
+            if (getUsuarioAutenticado().UserType == 0){
+                card.appendChild(status);
+            } 
             card.appendChild(buttonScore);
-            card.appendChild(buttonStatus);
-            card.appendChild(buttonDelete);
-            card.appendChild(buttonUpdate);
+            if (getUsuarioAutenticado().UserType == 0) {
+                card.appendChild(buttonStatus);
+                card.appendChild(buttonDelete);
+                card.appendChild(buttonUpdate);
+            }
             cardContainer.appendChild(card);
 
         }
@@ -398,6 +418,21 @@ function HotelsList(){
     }
 
 };
+
+
+function cerrarSesion() {
+    removerCredenciales();
+    window.location.replace('./html/login.html');
+}
+
+function removerCredenciales() {
+    sessionStorage.clear();
+}
+
+function getUsuarioAutenticado() {
+    return JSON.parse(sessionStorage.getItem("UsuarioAutenticado"));
+}
+
 
 function changeHotelStatus(hotelData) {
     console.log("cambiar estado hotel");
@@ -413,6 +448,7 @@ function changeHotelStatus(hotelData) {
         title : 'Cambio de estado exitoso',
         confirmButtonText : 'Entendido'
     })
+    HotelsList();
 }
 
 function deleteHotel(hotelData) {
@@ -431,7 +467,7 @@ function deleteHotel(hotelData) {
 
 function updateHotelData(hotaData) {
     setHoteLocalStorage(hotaData);
-    window.location.replace('../../../public/html/hotelRegistry.html');
+    window.location.replace('../../html/userRegistry.html');
 }
 
 function setHoteLocalStorage(hotaData) {

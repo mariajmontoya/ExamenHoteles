@@ -247,7 +247,7 @@ a.fa-eye {
     color: #fff;
     outline: none;
     cursor: pointer;
-    margin-top: 103px;
+    margin-top: 10px;
 }
 
 /* .card btnVer{
@@ -534,9 +534,25 @@ button:hover {
     color: white;
 }
 
+.hello {
+    float: left;
+    margin-top: 100px;
+    margin-left: 50px;
+    font-family: Helvetica;
+    font-size: 1.000em;
+}
+
+.name {
+    float: left;
+    margin-top: 100px;
+    margin-left: 20px;
+    font-family: Helvetica;
+    font-size: 1.000em;
+}
+
 .stars {
     height: 92px;
-    margin-left: -143px;
+    margin-left: 59px;
 }
 
 .error-input{

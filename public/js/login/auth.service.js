@@ -18,7 +18,7 @@ function iniciarSesion(Email, Password) {
     let valido = false;
 
     for (let i = 0; i < userList.length; i++) {
-        if (userList[i]["Email"] == Email && userList[i]["Password"] == Password) {
+        if (userList[i].Email == Email && userList[i].Password== Password) {
             setUsuarioSessionStorage(userList[i]);
             valido = true;
             return valido;

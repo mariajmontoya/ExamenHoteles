@@ -15,7 +15,7 @@ module.exports.hotelRegistry = function(req, res){
         phoneReservations : req.body.phoneReservations,
         emailReservations : req.body.emailReservations,
         Status: "Desactivado"
-        });
+        }); 
 
     newHotel.save(function(error){
         if(error){

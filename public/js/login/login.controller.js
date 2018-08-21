@@ -1,11 +1,11 @@
 'use strict';
 
 const btnIngresarUsuario = document.querySelector('#btnInicioSesion');
-const aSalirUsuario = document.querySelector('#btnSalir');
+// const aSalirUsuario = document.querySelector('#btnSalir');
 
 btnIngresarUsuario.addEventListener('click' , getCredencialesUsuario);
 
-aSalirUsuario.addEventListener('click' , cerrarSesion);
+// aSalirUsuario.addEventListener('click' , cerrarSesion);
 
 function obtenerUrl() {
     let paginaUrl = window.location.href;
@@ -91,29 +91,21 @@ function validarCredenciales(correo, contrasenna) {
 
 function cerrarSesion() {
     removerCredenciales();
-    window.location.replace('../../html/login.html');
+    window.location.replace('./html/login.html');
 }
 
 function redireccionarUsuario() {
     let usuarioAutenticado = getUsuarioAutenticado();
 
-    switch (usuarioAutenticado.TipoUsuario) {
-        case 0:
+    switch (usuarioAutenticado.UserType) {
+        case "0":
             // acciones de administrador            
-            window.location.replace('../../html/general/index_administrador.html');
+            window.location.replace('./landing.html');
             break;
-        case 1:
+        case "1":
             // acciones de profesor
-            window.location.replace('../../html/general/index_profesor.html');
-            break;
-        case 2:
-        // acciones de cliente
-            window.location.replace('../../html/general/index_cliente.html');
-            break;  
-        case 3:            
-        // acciones de estudiante
-            window.location.replace('../../html/general/index_estudiante.html');
-            break;                                       
+            window.location.replace('./landing.html');
+            break;                                     
         default:
             break;
     }
