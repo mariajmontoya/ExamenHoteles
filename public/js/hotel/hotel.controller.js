@@ -294,6 +294,11 @@ function hotelValidation(){
 function HotelsList(){
      let HotelList = listHotel();
      let cardContainer = document.querySelector('#cardContainer');
+    // //  let tbody = document.querySelector('#tblHotels tbody');
+    // // if(!pFiltro){
+    // //     pFiltro = '';
+    // }
+    // tbody.innerHTML = '';
 
      if(cardContainer == undefined)
         return;
@@ -301,7 +306,8 @@ function HotelsList(){
         return;
 
     for(let i = 0; i < HotelList.length; i++){
-        if(HotelList[i]['desactivado']){
+        if(HotelList[i]['desactivado']){ // .toLowerCase().includes(pFiltro.toLowerCase())
+            // let fila = tbody.insertRow();
             continue;
         } else { 
 
@@ -327,6 +333,7 @@ function HotelsList(){
 
             let h2 = document.createElement("h2");
             h2.innerHTML = HotelList[i]['hotelName'];
+
 
             let buttonMore = document.createElement("button");
             let btnMoreText = document.createTextNode("Ver más");
@@ -368,8 +375,6 @@ function HotelsList(){
             });
             buttonUpdate.classList.add("status");
 
-            
-
             imgInterContainer.appendChild(img);
             imgContainer.appendChild(imgInterContainer);
             card.appendChild(imgContainer);
@@ -405,6 +410,51 @@ function cleanForm(){
 function showHotelMoreInfo(pHotelInfo) {
     console.log(pHotelInfo);
 }
+
+
+function updateHotel(){    ////////FUNCION UPDATE HOTEL
+    let infoHotel =[];
+    let bError = false;
+
+    let hotelName = inputhotelName.value;
+    let Provincia = inputProvincia.value;
+    let Canton = inputCanton.value;
+    let Distrito = inputDistrito.value;
+    let Location = JSON.stringify({latitud: marker.getPosition().lat(), longitud: marker.getPosition().lng()});
+    let Address = inputAddress.value;
+    let CSPhone = inputCSPhone.value;
+    let CSEmail = inputCSEmail.value;
+    let phoneReservations = inputphoneReservations.value;
+    let emailReservations = inputemailReservations.value;
+
+    infoHotel.push(hotelName, Provincia, Canton, Distrito, Location, Address, CSPhone, CSEmail, phoneReservations, emailReservations);
+    
+    bError = hotelValidation();
+    if(bError == true){
+        swal({
+            type : 'warning',
+            title : 'Datos erróneos!',
+            text: 'Por favor revise los campos en rojo',
+            confirmButtonText : 'Entendido'
+        })
+        console.log('No se pudo modificar el hotel');
+    }else{
+        updateHotel(infoHotel);
+        // ftnDeshabilitarCampos();
+        btnUpdate.classList.remove('modificar');
+        btnSave.classList.add('modificar');
+        swal({
+            type : 'success',
+            title : 'Modificación exitosa',
+            text: 'El hotel se modificó adecuadamente',
+            confirmButtonText : 'Entendido'
+        });
+
+        window.location.replace('../../html/cliente/cliente_listar.html'); // OMG NO SE COMO LLEGAR A LA FUCKIN CARPETA
+
+    }
+    
+};
 
 
 

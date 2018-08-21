@@ -58,19 +58,15 @@ module.exports.filterHotel = function(req, res){
 };
 
 module.exports.deactivateHotel = function(req, res){
-    HotelModel.update(
-        {_id: req.body._id}, 
-        {
-            Desactivado : req.body.Desactivado
-        },
-        function(error){
-            if(error){
-                res.json({success : false, msg : 'No se pudo desactivar el hotel, ocurrió el siguiente error' + error});
-            }else{
-                res.json({success : true, msg : 'Se eliminó el hotel con éxito'});
+    HotelModel.findByIdAndUpdate(req.body._id, { $set: req.body }, 
+        function(err, hotel) {
+            if (err) {
+                res.json({ success: false, msg: 'No se ha actualizado.'+ handleError(err)});
+        
+            } else {
+            res.json({ success: true, msg: 'Se ha desactivado correctamente.' + res });
             }
-        }
-    )
+      });
 };
 
 module.exports.deleteHotel = function (req, res) {

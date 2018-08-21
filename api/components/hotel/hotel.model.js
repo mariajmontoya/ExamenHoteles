@@ -12,6 +12,7 @@ let HotelSchema = new mongoose.Schema({
     CSEmail : {type : String, required : true},
     phoneReservations : {type : String, required : true},
     emailReservations : {type : String, required: true},
+    Desactivado : {type: Boolean,required: true}
 });
 
 module.exports = mongoose.model('Hotel', HotelSchema);
